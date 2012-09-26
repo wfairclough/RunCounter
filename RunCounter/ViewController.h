@@ -8,6 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate>
+
+@property (nonatomic, strong) NSArray *setsValues;
+@property (nonatomic, strong) NSMutableArray *minsValues;
+@property (nonatomic, strong) UILabel *pickerSetsLabel;
+@property (nonatomic, strong) UILabel *pickerWorkoutMinsLabel;
+@property (nonatomic, strong) UILabel *pickerRestMinsLabel;
+@property (nonatomic, strong) IBOutlet UIView *pView;
+@property (nonatomic, strong) IBOutlet UIPickerView *timePicker;
+
+- (IBAction)startTimer:(id)sender;
 
 @end
