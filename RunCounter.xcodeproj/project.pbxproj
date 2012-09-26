@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BE33EA50161366CC006DFC45 /* beep_caf.caf in Resources */ = {isa = PBXBuildFile; fileRef = BE33EA4F161366CC006DFC45 /* beep_caf.caf */; };
 		BE917F18161286F200FDA328 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE917F17161286F200FDA328 /* UIKit.framework */; };
 		BE917F1A161286F200FDA328 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE917F19161286F200FDA328 /* Foundation.framework */; };
 		BE917F1C161286F200FDA328 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE917F1B161286F200FDA328 /* CoreGraphics.framework */; };
@@ -18,9 +19,12 @@
 		BE917F2E161286F200FDA328 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BE917F2D161286F200FDA328 /* Default-568h@2x.png */; };
 		BE917F31161286F200FDA328 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE917F30161286F200FDA328 /* ViewController.m */; };
 		BE917F34161286F200FDA328 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE917F32161286F200FDA328 /* ViewController.xib */; };
+		BEC3A44C16133A38008492E1 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = BEC3A44B16133A38008492E1 /* icon.png */; };
+		BEC3A44F16133FBF008492E1 /* icon1.png in Resources */ = {isa = PBXBuildFile; fileRef = BEC3A44E16133FBF008492E1 /* icon1.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BE33EA4F161366CC006DFC45 /* beep_caf.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = beep_caf.caf; sourceTree = "<group>"; };
 		BE917F13161286F200FDA328 /* RunCounter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RunCounter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE917F17161286F200FDA328 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		BE917F19161286F200FDA328 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -37,6 +41,8 @@
 		BE917F2F161286F200FDA328 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		BE917F30161286F200FDA328 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		BE917F33161286F200FDA328 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
+		BEC3A44B16133A38008492E1 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		BEC3A44E16133FBF008492E1 /* icon1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon1.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +62,8 @@
 		BE917F08161286F200FDA328 = {
 			isa = PBXGroup;
 			children = (
+				BEC3A44E16133FBF008492E1 /* icon1.png */,
+				BEC3A44B16133A38008492E1 /* icon.png */,
 				BE917F1D161286F200FDA328 /* RunCounter */,
 				BE917F16161286F200FDA328 /* Frameworks */,
 				BE917F14161286F200FDA328 /* Products */,
@@ -96,6 +104,7 @@
 		BE917F1E161286F200FDA328 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				BEC3A45416134105008492E1 /* Sounds */,
 				BE917F1F161286F200FDA328 /* RunCounter-Info.plist */,
 				BE917F20161286F200FDA328 /* InfoPlist.strings */,
 				BE917F23161286F200FDA328 /* main.m */,
@@ -105,6 +114,14 @@
 				BE917F2D161286F200FDA328 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		BEC3A45416134105008492E1 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				BE33EA4F161366CC006DFC45 /* beep_caf.caf */,
+			);
+			name = Sounds;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -163,6 +180,9 @@
 				BE917F2C161286F200FDA328 /* Default@2x.png in Resources */,
 				BE917F2E161286F200FDA328 /* Default-568h@2x.png in Resources */,
 				BE917F34161286F200FDA328 /* ViewController.xib in Resources */,
+				BEC3A44C16133A38008492E1 /* icon.png in Resources */,
+				BEC3A44F16133FBF008492E1 /* icon1.png in Resources */,
+				BE33EA50161366CC006DFC45 /* beep_caf.caf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -224,6 +244,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -245,6 +266,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -291,6 +313,7 @@
 				BE917F39161286F200FDA328 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

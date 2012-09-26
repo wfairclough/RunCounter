@@ -10,6 +10,12 @@
 
 @interface ViewController : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate>
 
+@property (nonatomic) NSTimeInterval restTime;
+@property (nonatomic) NSTimeInterval workoutTime;
+@property (nonatomic, strong) NSNumber *setsNumber;
+@property (nonatomic, strong) NSDate *timeStarted;
+@property (nonatomic, strong) NSDate *timePaused;
+
 @property (nonatomic, strong) NSArray *setsValues;
 @property (nonatomic, strong) NSMutableArray *minsValues;
 @property (nonatomic, strong) UILabel *pickerSetsLabel;
