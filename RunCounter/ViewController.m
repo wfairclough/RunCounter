@@ -16,7 +16,7 @@
 @synthesize timePicker, minsValues, setsValues, pView, pickerSetsLabel, pickerRestMinsLabel, pickerWorkoutMinsLabel;
 @synthesize restTime, workoutTime, setsNumber;
 @synthesize timeStarted;
-@synthesize timePaused;
+@synthesize timePaused = _timePaused;
 
 - (id) initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -94,7 +94,7 @@
 {
     UIApplication* app = [UIApplication sharedApplication];
     
-    NSArray*    oldNotifications = [app scheduledLocalNotifications];
+    NSArray* oldNotifications = [app scheduledLocalNotifications];
     
     // Clear out the old notification before scheduling a new one.
     if ([oldNotifications count] > 0) {
@@ -106,20 +106,21 @@
         
     }
     
+    // Create Local Notifications for all Workout and Rest end times.
     for (int setNum = 1; setNum <= [setsNumber intValue]; setNum++) {
-            
+        
         // Create a new workout notification.
         UILocalNotification* workoutOverAlarm = [[UILocalNotification alloc] init];
         if (workoutOverAlarm)
         {
-            NSTimeInterval workoutTimeFirstVal = setNum * workoutTime;
-            NSTimeInterval workoutTimeVal = (setNum * (restTime + workoutTime)) - workoutTime;
+            NSTimeInterval workoutTimeIntervalFirst = setNum * workoutTime;
+            NSTimeInterval workoutTimeInterval = (setNum * (restTime + workoutTime)) - restTime;
             
-            NSDate *theDate;
+            NSDate* theDate;
             if (setNum == 1) {
-                theDate = [[NSDate alloc] initWithTimeIntervalSinceNow:workoutTimeFirstVal];
+                theDate = [[NSDate alloc] initWithTimeIntervalSinceNow:workoutTimeIntervalFirst];
             } else {
-                theDate = [[NSDate alloc] initWithTimeIntervalSinceNow:workoutTimeVal];
+                theDate = [[NSDate alloc] initWithTimeIntervalSinceNow:workoutTimeInterval];
             }
             
             NSLog(@"WorkoutOverTime: %@  Set: %d", theDate, setNum);
@@ -128,7 +129,13 @@
             workoutOverAlarm.timeZone = [NSTimeZone defaultTimeZone];
             workoutOverAlarm.soundName = @"beep_caf.caf";
             
-            NSString *restString = [NSString stringWithFormat:@"Set %d: Time to take a break for %d min", setNum, (int)(restTime/60.0)];
+            NSString* restString;
+            
+            if (setNum != [setsNumber intValue]) {
+                restString = [NSString stringWithFormat:@"Set %d: Time to take a break for %d min", setNum, (int)(restTime/60.0)];
+            } else {
+                restString = [NSString stringWithFormat:@"Workout Complete! Great Job!"];
+            }
             
             workoutOverAlarm.alertBody = restString;
             
@@ -136,24 +143,27 @@
         }
         
         
-        // Create a new rest notification.
-        UILocalNotification* restOverAlarm = [[UILocalNotification alloc] init];
-        if (restOverAlarm)
+        // Create a new rest notification if it is not the last one.
+        if (setNum != [setsNumber intValue])
         {
-            NSTimeInterval restTimeVal = setNum * (restTime + workoutTime);
-            
-            NSDate *theDate = [[NSDate alloc] initWithTimeIntervalSinceNow:restTimeVal];
-            NSLog(@"RestOverTime: %@  Set: %d", theDate, setNum);
-            
-            restOverAlarm.fireDate = theDate;
-            restOverAlarm.timeZone = [NSTimeZone defaultTimeZone];
-            restOverAlarm.soundName = @"beep_caf.caf";
-
-            NSString *workoutString = [NSString stringWithFormat:@"Set %d complete! Time to start set %d for %d min", setNum, (setNum + 1), (int)(workoutTime/60)];
-            
-            restOverAlarm.alertBody = workoutString;
-            
-            [app scheduleLocalNotification:restOverAlarm];
+            UILocalNotification* restOverAlarm = [[UILocalNotification alloc] init];
+            if (restOverAlarm)
+            {
+                NSTimeInterval restTimeInterval = (setNum * (restTime + workoutTime));
+                
+                NSDate* theDate = [[NSDate alloc] initWithTimeIntervalSinceNow:restTimeInterval];
+                NSLog(@"RestOverTime: %@  Set: %d", theDate, setNum);
+                
+                restOverAlarm.fireDate = theDate;
+                restOverAlarm.timeZone = [NSTimeZone defaultTimeZone];
+                restOverAlarm.soundName = @"beep_caf.caf";
+                
+                NSString* workoutString = [NSString stringWithFormat:@"Set %d complete! Time to start set %d for %d min", setNum, (setNum + 1), (int)(workoutTime/60)];
+                
+                restOverAlarm.alertBody = workoutString;
+                
+                [app scheduleLocalNotification:restOverAlarm];
+            }
         }
         
     }
@@ -256,7 +266,6 @@
 {
     return 100.0;
 }
-
 
 
 
