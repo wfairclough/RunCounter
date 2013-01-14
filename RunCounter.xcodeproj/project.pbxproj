@@ -21,8 +21,6 @@
 		BE917F2E161286F200FDA328 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BE917F2D161286F200FDA328 /* Default-568h@2x.png */; };
 		BE917F31161286F200FDA328 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE917F30161286F200FDA328 /* ViewController.m */; };
 		BE917F34161286F200FDA328 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE917F32161286F200FDA328 /* ViewController.xib */; };
-		BEC3A44C16133A38008492E1 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = BEC3A44B16133A38008492E1 /* icon.png */; };
-		BEC3A44F16133FBF008492E1 /* icon1.png in Resources */ = {isa = PBXBuildFile; fileRef = BEC3A44E16133FBF008492E1 /* icon1.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,8 +43,6 @@
 		BE917F2F161286F200FDA328 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		BE917F30161286F200FDA328 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		BE917F33161286F200FDA328 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
-		BEC3A44B16133A38008492E1 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
-		BEC3A44E16133FBF008492E1 /* icon1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon1.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,8 +62,6 @@
 		BE917F08161286F200FDA328 = {
 			isa = PBXGroup;
 			children = (
-				BEC3A44E16133FBF008492E1 /* icon1.png */,
-				BEC3A44B16133A38008492E1 /* icon.png */,
 				BE917F1D161286F200FDA328 /* RunCounter */,
 				BE917F16161286F200FDA328 /* Frameworks */,
 				BE917F14161286F200FDA328 /* Products */,
@@ -186,8 +180,6 @@
 				BE917F2C161286F200FDA328 /* Default@2x.png in Resources */,
 				BE917F2E161286F200FDA328 /* Default-568h@2x.png in Resources */,
 				BE917F34161286F200FDA328 /* ViewController.xib in Resources */,
-				BEC3A44C16133A38008492E1 /* icon.png in Resources */,
-				BEC3A44F16133FBF008492E1 /* icon1.png in Resources */,
 				BE33EA50161366CC006DFC45 /* beep_caf.caf in Resources */,
 				BE467D4816A3A64300C2176C /* icon.png in Resources */,
 				BE467D4916A3A64300C2176C /* icon@2x.png in Resources */,
