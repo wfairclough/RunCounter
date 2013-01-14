@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		BE33EA50161366CC006DFC45 /* beep_caf.caf in Resources */ = {isa = PBXBuildFile; fileRef = BE33EA4F161366CC006DFC45 /* beep_caf.caf */; };
+		BE467D4816A3A64300C2176C /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = BE467D4616A3A64300C2176C /* icon.png */; };
+		BE467D4916A3A64300C2176C /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BE467D4716A3A64300C2176C /* icon@2x.png */; };
 		BE917F18161286F200FDA328 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE917F17161286F200FDA328 /* UIKit.framework */; };
 		BE917F1A161286F200FDA328 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE917F19161286F200FDA328 /* Foundation.framework */; };
 		BE917F1C161286F200FDA328 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE917F1B161286F200FDA328 /* CoreGraphics.framework */; };
@@ -25,6 +27,8 @@
 
 /* Begin PBXFileReference section */
 		BE33EA4F161366CC006DFC45 /* beep_caf.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = beep_caf.caf; sourceTree = "<group>"; };
+		BE467D4616A3A64300C2176C /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		BE467D4716A3A64300C2176C /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
 		BE917F13161286F200FDA328 /* RunCounter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RunCounter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE917F17161286F200FDA328 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		BE917F19161286F200FDA328 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -104,6 +108,8 @@
 		BE917F1E161286F200FDA328 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				BE467D4616A3A64300C2176C /* icon.png */,
+				BE467D4716A3A64300C2176C /* icon@2x.png */,
 				BEC3A45416134105008492E1 /* Sounds */,
 				BE917F1F161286F200FDA328 /* RunCounter-Info.plist */,
 				BE917F20161286F200FDA328 /* InfoPlist.strings */,
@@ -183,6 +189,8 @@
 				BEC3A44C16133A38008492E1 /* icon.png in Resources */,
 				BEC3A44F16133FBF008492E1 /* icon1.png in Resources */,
 				BE33EA50161366CC006DFC45 /* beep_caf.caf in Resources */,
+				BE467D4816A3A64300C2176C /* icon.png in Resources */,
+				BE467D4916A3A64300C2176C /* icon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
