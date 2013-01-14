@@ -29,7 +29,13 @@
 
     self.navController = [[UINavigationController alloc] initWithRootViewController:self.viewController];
     self.navController.navigationBar.tintColor = [UIColor colorWithRed:kMainColorRed green:kMainColorGreen blue:kMainColorBlue alpha:1.0];
+    [self.navController.navigationBar setBackgroundImage:[UIImage imageNamed: @"NavBarPattern"] forBarMetrics:UIBarMetricsDefault];
     
+    UIImageView* logoView = [[UIImageView alloc] initWithFrame:CGRectMake(100, 6, 120, 36)];
+    [logoView setImage:[UIImage imageNamed:@"RunCounterLogoNavBar@2x"]];
+    
+    [self.navController.navigationBar addSubview:logoView];
+     
     
     /* Splash Screen Initialization */
     self.splashImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, screenBounds.size.width, screenBounds.size.height)];

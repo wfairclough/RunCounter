@@ -41,6 +41,10 @@
 		BE467DB116A3BFDC00C2176C /* whiteButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BE467D9416A3BFDC00C2176C /* whiteButton@2x.png */; };
 		BE467DB216A3BFDC00C2176C /* whiteButtonHighlight.png in Resources */ = {isa = PBXBuildFile; fileRef = BE467D9516A3BFDC00C2176C /* whiteButtonHighlight.png */; };
 		BE467DB316A3BFDC00C2176C /* whiteButtonHighlight@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BE467D9616A3BFDC00C2176C /* whiteButtonHighlight@2x.png */; };
+		BE467DB516A451D500C2176C /* NavBarPattern.png in Resources */ = {isa = PBXBuildFile; fileRef = BE467DB416A451D400C2176C /* NavBarPattern.png */; };
+		BE467DB716A454BE00C2176C /* bg-tile.png in Resources */ = {isa = PBXBuildFile; fileRef = BE467DB616A454BD00C2176C /* bg-tile.png */; };
+		BE467DB916A4563500C2176C /* RunCounterLogoNavBar.png in Resources */ = {isa = PBXBuildFile; fileRef = BE467DB816A4563400C2176C /* RunCounterLogoNavBar.png */; };
+		BE467DBB16A4571D00C2176C /* RunCounterLogoNavBar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BE467DBA16A4571C00C2176C /* RunCounterLogoNavBar@2x.png */; };
 		BE917F18161286F200FDA328 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE917F17161286F200FDA328 /* UIKit.framework */; };
 		BE917F1A161286F200FDA328 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE917F19161286F200FDA328 /* Foundation.framework */; };
 		BE917F1C161286F200FDA328 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE917F1B161286F200FDA328 /* CoreGraphics.framework */; };
@@ -89,6 +93,10 @@
 		BE467D9416A3BFDC00C2176C /* whiteButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "whiteButton@2x.png"; sourceTree = "<group>"; };
 		BE467D9516A3BFDC00C2176C /* whiteButtonHighlight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = whiteButtonHighlight.png; sourceTree = "<group>"; };
 		BE467D9616A3BFDC00C2176C /* whiteButtonHighlight@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "whiteButtonHighlight@2x.png"; sourceTree = "<group>"; };
+		BE467DB416A451D400C2176C /* NavBarPattern.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = NavBarPattern.png; path = img/NavBarPattern.png; sourceTree = "<group>"; };
+		BE467DB616A454BD00C2176C /* bg-tile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "bg-tile.png"; path = "img/bg-tile.png"; sourceTree = "<group>"; };
+		BE467DB816A4563400C2176C /* RunCounterLogoNavBar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = RunCounterLogoNavBar.png; path = img/RunCounterLogoNavBar.png; sourceTree = "<group>"; };
+		BE467DBA16A4571C00C2176C /* RunCounterLogoNavBar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "RunCounterLogoNavBar@2x.png"; path = "img/RunCounterLogoNavBar@2x.png"; sourceTree = "<group>"; };
 		BE917F13161286F200FDA328 /* RunCounter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RunCounter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE917F17161286F200FDA328 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		BE917F19161286F200FDA328 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -142,6 +150,10 @@
 		BE467D5416A3BB8700C2176C /* img */ = {
 			isa = PBXGroup;
 			children = (
+				BE467DBA16A4571C00C2176C /* RunCounterLogoNavBar@2x.png */,
+				BE467DB816A4563400C2176C /* RunCounterLogoNavBar.png */,
+				BE467DB616A454BD00C2176C /* bg-tile.png */,
+				BE467DB416A451D400C2176C /* NavBarPattern.png */,
 				BE467D7916A3BFDC00C2176C /* buttons */,
 				BE467D6516A3BC2600C2176C /* ipad-BG.png */,
 				BE467D6616A3BC2600C2176C /* ipad-BG@2x.png */,
@@ -340,6 +352,10 @@
 				BE467DB116A3BFDC00C2176C /* whiteButton@2x.png in Resources */,
 				BE467DB216A3BFDC00C2176C /* whiteButtonHighlight.png in Resources */,
 				BE467DB316A3BFDC00C2176C /* whiteButtonHighlight@2x.png in Resources */,
+				BE467DB516A451D500C2176C /* NavBarPattern.png in Resources */,
+				BE467DB716A454BE00C2176C /* bg-tile.png in Resources */,
+				BE467DB916A4563500C2176C /* RunCounterLogoNavBar.png in Resources */,
+				BE467DBB16A4571D00C2176C /* RunCounterLogoNavBar@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

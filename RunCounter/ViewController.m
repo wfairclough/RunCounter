@@ -25,7 +25,7 @@
     
     if (self) {
         
-        self.title = NSLocalizedString(@"Title", @"The Title for the Main View");
+        //self.title = NSLocalizedString(@"Title", @"The Title for the Main View");
         
         isActive = NO;
         
@@ -55,7 +55,10 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-      
+    
+    [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"bg-tile"]]];
+
+    
     pickerSetsLabel = [[UILabel alloc] initWithFrame:CGRectMake(66, 93, 70, 30)];
     pickerSetsLabel.text = @"set";
     pickerSetsLabel.textColor = [UIColor colorWithRed:74.0/255.0 green:78.0/255.0 blue:95.0/255.0 alpha:1.0];
