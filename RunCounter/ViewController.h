@@ -16,6 +16,8 @@
 @property (nonatomic, strong) NSDate *timeStarted;
 @property (nonatomic, strong) NSDate *timePaused;
 
+@property BOOL isActive;
+
 @property (nonatomic, strong) NSArray *setsValues;
 @property (nonatomic, strong) NSMutableArray *minsValues;
 @property (nonatomic, strong) UILabel *pickerSetsLabel;
@@ -23,7 +25,8 @@
 @property (nonatomic, strong) UILabel *pickerRestMinsLabel;
 @property (nonatomic, strong) IBOutlet UIView *pView;
 @property (nonatomic, strong) IBOutlet UIPickerView *timePicker;
+@property (nonatomic, strong) IBOutlet UIButton *startButton;
 
-- (IBAction)startTimer:(id)sender;
+- (IBAction)startTimer:(UIButton *)sender;
 
 @end

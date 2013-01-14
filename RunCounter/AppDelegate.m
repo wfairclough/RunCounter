@@ -7,11 +7,14 @@
 //
 
 #import "AppDelegate.h"
-
 #import "ViewController.h"
 
+#define kMainColorRed 90.0/255.0
+#define kMainColorGreen 72.0/255.0
+#define kMainColorBlue 157.0/255.0
+
 @implementation AppDelegate
-@synthesize splashImageView;
+@synthesize splashImageView, navController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -19,11 +22,17 @@
     // Override point for customization after application launch.
     
     CGRect screenBounds = [[UIScreen mainScreen] bounds];
-
     
+    
+    /* Controllers Initialization */
     self.viewController = [[ViewController alloc] initWithNibName:@"ViewController" bundle:nil];
+
+    self.navController = [[UINavigationController alloc] initWithRootViewController:self.viewController];
+    self.navController.navigationBar.tintColor = [UIColor colorWithRed:kMainColorRed green:kMainColorGreen blue:kMainColorBlue alpha:1.0];
     
-    self.splashImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, -20, screenBounds.size.width, screenBounds.size.height)]; // Bounds for iPhone 5
+    
+    /* Splash Screen Initialization */
+    self.splashImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, screenBounds.size.width, screenBounds.size.height)];
 
     if (screenBounds.size.height == 568) {
         // iPhone 5 - 4 inch screen
@@ -32,21 +41,22 @@
         // iPhone 4 - 3.5 inch screen
         [self.splashImageView setImage:[UIImage imageNamed:@"Default@2x"]];
     }
-    [[self.viewController view] addSubview:self.splashImageView];
-    [[self.viewController view] bringSubviewToFront:self.splashImageView];
-    
+    [[self.navController view] addSubview:self.splashImageView];
+    [[self.navController view] bringSubviewToFront:self.splashImageView];
 
-    self.window.rootViewController = self.viewController;
+    
+    /* Window setup */
+    self.window.rootViewController = self.navController;
     [self.window makeKeyAndVisible];
     [NSNotificationCenter defaultCenter];
     
-    // Schedule the fading of the Splash Screen
+    
+    /* Schedule the fading of the Splash Screen */
     [NSTimer scheduledTimerWithTimeInterval:2.0
                                      target:self
                                    selector:@selector(fadeSplashScreen)
                                    userInfo:nil
                                     repeats:NO];
-
     
     return YES;
 }

@@ -13,16 +13,22 @@
 @end
 
 @implementation ViewController
-@synthesize timePicker, minsValues, setsValues, pView, pickerSetsLabel, pickerRestMinsLabel, pickerWorkoutMinsLabel;
+@synthesize timePicker, minsValues, setsValues, pView, pickerSetsLabel, pickerRestMinsLabel, pickerWorkoutMinsLabel, startButton;
 @synthesize restTime, workoutTime, setsNumber;
 @synthesize timeStarted;
 @synthesize timePaused = _timePaused;
+@synthesize isActive;
 
 - (id) initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     
     if (self) {
+        
+        self.title = NSLocalizedString(@"Title", @"The Title for the Main View");
+        
+        isActive = NO;
+        
         setsValues = @[@"  1", @"  2", @"  3", @"  4", @"  5", @"  6", @"  7", @"  8", @"  9", @"10", @"11", @"12", @"13", @"14", @"15", @"16", @"17", @"18", @"19", @"20", @"21", @"22", @"23", @"24", @"25"];
         
         minsValues = [[NSMutableArray alloc] initWithCapacity:60];
@@ -80,6 +86,17 @@
     [pView insertSubview:pickerWorkoutMinsLabel aboveSubview:timePicker];
     
     
+    UIImage *buttonImage = [[UIImage imageNamed:@"greenButton"]
+                            resizableImageWithCapInsets:UIEdgeInsetsMake(18, 18, 18, 18)];
+    UIImage *buttonImageHighlight = [[UIImage imageNamed:@"greenButtonHighlight"]
+                                     resizableImageWithCapInsets:UIEdgeInsetsMake(18, 18, 18, 18)];
+    
+    // Set the background for any states you plan to use
+    [startButton setBackgroundImage:buttonImage forState:UIControlStateNormal];
+    [startButton setBackgroundImage:buttonImageHighlight forState:UIControlStateHighlighted];
+//    [startButton.titleLabel setText:NSLocalizedString(@"StartWorkout", @"Start Workout Title")];
+//    [startButton.titleLabel setTextColor:[UIColor whiteColor]];
+    
     [timePicker setDataSource:self];
     [timePicker setDelegate:self];
 }
@@ -90,7 +107,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)startTimer:(id)sender
+- (IBAction)startTimer:(UIButton *)sender
 {
     UIApplication* app = [UIApplication sharedApplication];
     
@@ -106,69 +123,101 @@
         
     }
     
-    // Create Local Notifications for all Workout and Rest end times.
-    for (int setNum = 1; setNum <= [setsNumber intValue]; setNum++) {
+    
+    
+    if (!isActive)
+    {
+        isActive = YES;
         
-        // Create a new workout notification.
-        UILocalNotification* workoutOverAlarm = [[UILocalNotification alloc] init];
-        if (workoutOverAlarm)
-        {
-            NSTimeInterval workoutTimeIntervalFirst = setNum * workoutTime;
-            NSTimeInterval workoutTimeInterval = (setNum * (restTime + workoutTime)) - restTime;
-            
-            NSDate* theDate;
-            if (setNum == 1) {
-                theDate = [[NSDate alloc] initWithTimeIntervalSinceNow:workoutTimeIntervalFirst];
-            } else {
-                theDate = [[NSDate alloc] initWithTimeIntervalSinceNow:workoutTimeInterval];
-            }
-            
-            NSLog(@"WorkoutOverTime: %@  Set: %d", theDate, setNum);
-            
-            workoutOverAlarm.fireDate = theDate;
-            workoutOverAlarm.timeZone = [NSTimeZone defaultTimeZone];
-            workoutOverAlarm.soundName = @"beep_caf.caf";
-            
-            NSString* restString;
-            
-            if (setNum != [setsNumber intValue]) {
-                restString = [NSString stringWithFormat:@"Set %d: Time to take a break for %d min", setNum, (int)(restTime/60.0)];
-            } else {
-                restString = [NSString stringWithFormat:@"Workout Complete! Great Job!"];
-            }
-            
-            workoutOverAlarm.alertBody = restString;
-            
-            [app scheduleLocalNotification:workoutOverAlarm];
-        }
+        // Change Button
+        UIImage *buttonImage = [[UIImage imageNamed:@"orangeButton"]
+                                resizableImageWithCapInsets:UIEdgeInsetsMake(18, 18, 18, 18)];
+        UIImage *buttonImageHighlight = [[UIImage imageNamed:@"orangeButtonHighlight"]
+                                         resizableImageWithCapInsets:UIEdgeInsetsMake(18, 18, 18, 18)];
         
+        // Set the background for any states you plan to use
+        [startButton setBackgroundImage:buttonImage forState:UIControlStateNormal];
+        [startButton setBackgroundImage:buttonImageHighlight forState:UIControlStateHighlighted];
         
-        // Create a new rest notification if it is not the last one.
-        if (setNum != [setsNumber intValue])
-        {
-            UILocalNotification* restOverAlarm = [[UILocalNotification alloc] init];
-            if (restOverAlarm)
+        [startButton setTitle:NSLocalizedString(@"EndWorkout", @"End Workout Title") forState:UIControlStateNormal];
+        
+        // Create Local Notifications for all Workout and Rest end times.
+        for (int setNum = 1; setNum <= [setsNumber intValue]; setNum++) {
+            
+            // Create a new workout notification.
+            UILocalNotification* workoutOverAlarm = [[UILocalNotification alloc] init];
+            if (workoutOverAlarm)
             {
-                NSTimeInterval restTimeInterval = (setNum * (restTime + workoutTime));
+                NSTimeInterval workoutTimeIntervalFirst = setNum * workoutTime;
+                NSTimeInterval workoutTimeInterval = (setNum * (restTime + workoutTime)) - restTime;
                 
-                NSDate* theDate = [[NSDate alloc] initWithTimeIntervalSinceNow:restTimeInterval];
-                NSLog(@"RestOverTime: %@  Set: %d", theDate, setNum);
+                NSDate* theDate;
+                if (setNum == 1) {
+                    theDate = [[NSDate alloc] initWithTimeIntervalSinceNow:workoutTimeIntervalFirst];
+                } else {
+                    theDate = [[NSDate alloc] initWithTimeIntervalSinceNow:workoutTimeInterval];
+                }
                 
-                restOverAlarm.fireDate = theDate;
-                restOverAlarm.timeZone = [NSTimeZone defaultTimeZone];
-                restOverAlarm.soundName = @"beep_caf.caf";
+                NSLog(@"WorkoutOverTime: %@  Set: %d", theDate, setNum);
                 
-                NSString* workoutString = [NSString stringWithFormat:@"Set %d complete! Time to start set %d for %d min", setNum, (setNum + 1), (int)(workoutTime/60)];
+                workoutOverAlarm.fireDate = theDate;
+                workoutOverAlarm.timeZone = [NSTimeZone defaultTimeZone];
+                workoutOverAlarm.soundName = @"beep_caf.caf";
                 
-                restOverAlarm.alertBody = workoutString;
+                NSString* restString;
                 
-                [app scheduleLocalNotification:restOverAlarm];
+                if (setNum != [setsNumber intValue]) {
+                    restString = [NSString stringWithFormat:@"Set %d: Time to take a break for %d min", setNum, (int)(restTime/60.0)];
+                } else {
+                    restString = [NSString stringWithFormat:@"Workout Complete! Great Job!"];
+                }
+                
+                workoutOverAlarm.alertBody = restString;
+                
+                [app scheduleLocalNotification:workoutOverAlarm];
             }
+            
+            
+            // Create a new rest notification if it is not the last one.
+            if (setNum != [setsNumber intValue])
+            {
+                UILocalNotification* restOverAlarm = [[UILocalNotification alloc] init];
+                if (restOverAlarm)
+                {
+                    NSTimeInterval restTimeInterval = (setNum * (restTime + workoutTime));
+                    
+                    NSDate* theDate = [[NSDate alloc] initWithTimeIntervalSinceNow:restTimeInterval];
+                    NSLog(@"RestOverTime: %@  Set: %d", theDate, setNum);
+                    
+                    restOverAlarm.fireDate = theDate;
+                    restOverAlarm.timeZone = [NSTimeZone defaultTimeZone];
+                    restOverAlarm.soundName = @"beep_caf.caf";
+                    
+                    NSString* workoutString = [NSString stringWithFormat:@"Set %d complete! Time to start set %d for %d min", setNum, (setNum + 1), (int)(workoutTime/60)];
+                    
+                    restOverAlarm.alertBody = workoutString;
+                    
+                    [app scheduleLocalNotification:restOverAlarm];
+                }
+            }
+            
         }
-        
     }
-    
-    
+    else
+    {
+        isActive = NO;
+        
+        UIImage *buttonImage = [[UIImage imageNamed:@"greenButton"]
+                                resizableImageWithCapInsets:UIEdgeInsetsMake(18, 18, 18, 18)];
+        UIImage *buttonImageHighlight = [[UIImage imageNamed:@"greenButtonHighlight"]
+                                         resizableImageWithCapInsets:UIEdgeInsetsMake(18, 18, 18, 18)];
+        
+        // Set the background for any states you plan to use
+        [startButton setBackgroundImage:buttonImage forState:UIControlStateNormal];
+        [startButton setBackgroundImage:buttonImageHighlight forState:UIControlStateHighlighted];
+        
+        [startButton setTitle:NSLocalizedString(@"StartWorkout", @"Start Workout Title") forState:UIControlStateNormal];
+    }
 }
 
 #pragma mark - Data  Source 
