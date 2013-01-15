@@ -7,13 +7,15 @@
 //
 
 #import "CreateWorkoutViewController.h"
+#import "NSManagedObject+EasyFetching.h"
+#import "Settings.h"
 
 @interface CreateWorkoutViewController ()
 
 @end
 
 @implementation CreateWorkoutViewController
-@synthesize timePicker, minsValues, setsValues, pickerSuperview, pickerSetsLabel, pickerRestMinsLabel, pickerWorkoutMinsLabel, startButton;
+@synthesize timePicker, minsValues, setsValues, pickerSuperview, pickerSetsLabel, pickerRestMinsLabel, pickerWorkoutMinsLabel, startButton, notificationSwitch;
 @synthesize restTime, workoutTime, setsNumber;
 @synthesize timeStarted;
 @synthesize timePaused = _timePaused;
@@ -133,12 +135,34 @@
     
     [timePicker setDataSource:self];
     [timePicker setDelegate:self];
+    
+    Settings* settings = (Settings *)[Settings findFirst];
+    [notificationSwitch setOn:settings.isNotificationsOnValue];
+    
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)setNotificationSwitchVal:(UISwitch *)sender
+{
+    Settings* settings = (Settings *)[Settings findFirst];
+    [settings setUpdatedAt:[NSDate date]];
+    [settings setIsNotificationsOnValue:sender.isOn];
+    
+    NSManagedObjectContext* context = [settings managedObjectContext];
+    
+    NSError* error = nil;
+    
+    [context save:&error];
+    
+    if (error != nil)
+    {
+        // Error Handling
+    }
 }
 
 - (IBAction)startTimer:(UIButton *)sender

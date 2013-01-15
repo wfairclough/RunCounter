@@ -46,6 +46,13 @@
 		BE467DB916A4563500C2176C /* RunCounterLogoNavBar.png in Resources */ = {isa = PBXBuildFile; fileRef = BE467DB816A4563400C2176C /* RunCounterLogoNavBar.png */; };
 		BE467DBB16A4571D00C2176C /* RunCounterLogoNavBar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BE467DBA16A4571C00C2176C /* RunCounterLogoNavBar@2x.png */; };
 		BE467DE316A4894200C2176C /* StoryboardiPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE467DE216A4894100C2176C /* StoryboardiPhone.storyboard */; };
+		BE467E2616A4EED100C2176C /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE467E2516A4EED100C2176C /* CoreData.framework */; };
+		BE467E2916A4F11400C2176C /* RunCounterSchema.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BE467E2716A4F11200C2176C /* RunCounterSchema.xcdatamodeld */; };
+		BE7958C516A606FC00DCCF57 /* _Cache.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7958BE16A606FC00DCCF57 /* _Cache.m */; };
+		BE7958C616A606FC00DCCF57 /* _Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7958C016A606FC00DCCF57 /* _Settings.m */; };
+		BE7958C716A606FC00DCCF57 /* Cache.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7958C216A606FC00DCCF57 /* Cache.m */; };
+		BE7958C816A606FC00DCCF57 /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7958C416A606FC00DCCF57 /* Settings.m */; };
+		BE7958CB16A60C0800DCCF57 /* NSManagedObject+EasyFetching.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7958CA16A60C0800DCCF57 /* NSManagedObject+EasyFetching.m */; };
 		BE917F18161286F200FDA328 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE917F17161286F200FDA328 /* UIKit.framework */; };
 		BE917F1A161286F200FDA328 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE917F19161286F200FDA328 /* Foundation.framework */; };
 		BE917F1C161286F200FDA328 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE917F1B161286F200FDA328 /* CoreGraphics.framework */; };
@@ -98,6 +105,18 @@
 		BE467DB816A4563400C2176C /* RunCounterLogoNavBar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = RunCounterLogoNavBar.png; path = img/RunCounterLogoNavBar.png; sourceTree = "<group>"; };
 		BE467DBA16A4571C00C2176C /* RunCounterLogoNavBar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "RunCounterLogoNavBar@2x.png"; path = "img/RunCounterLogoNavBar@2x.png"; sourceTree = "<group>"; };
 		BE467DE216A4894100C2176C /* StoryboardiPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = StoryboardiPhone.storyboard; sourceTree = "<group>"; };
+		BE467E2516A4EED100C2176C /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		BE467E2816A4F11400C2176C /* RunCounterSchema.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RunCounterSchema.xcdatamodel; sourceTree = "<group>"; };
+		BE7958BD16A606FC00DCCF57 /* _Cache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _Cache.h; sourceTree = "<group>"; };
+		BE7958BE16A606FC00DCCF57 /* _Cache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _Cache.m; sourceTree = "<group>"; };
+		BE7958BF16A606FC00DCCF57 /* _Settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _Settings.h; sourceTree = "<group>"; };
+		BE7958C016A606FC00DCCF57 /* _Settings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _Settings.m; sourceTree = "<group>"; };
+		BE7958C116A606FC00DCCF57 /* Cache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cache.h; sourceTree = "<group>"; };
+		BE7958C216A606FC00DCCF57 /* Cache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Cache.m; sourceTree = "<group>"; };
+		BE7958C316A606FC00DCCF57 /* Settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Settings.h; sourceTree = "<group>"; };
+		BE7958C416A606FC00DCCF57 /* Settings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Settings.m; sourceTree = "<group>"; };
+		BE7958C916A60C0800DCCF57 /* NSManagedObject+EasyFetching.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject+EasyFetching.h"; sourceTree = "<group>"; };
+		BE7958CA16A60C0800DCCF57 /* NSManagedObject+EasyFetching.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+EasyFetching.m"; sourceTree = "<group>"; };
 		BE917F13161286F200FDA328 /* RunCounter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RunCounter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE917F17161286F200FDA328 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		BE917F19161286F200FDA328 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -120,6 +139,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE467E2616A4EED100C2176C /* CoreData.framework in Frameworks */,
 				BE917F18161286F200FDA328 /* UIKit.framework in Frameworks */,
 				BE917F1A161286F200FDA328 /* Foundation.framework in Frameworks */,
 				BE917F1C161286F200FDA328 /* CoreGraphics.framework in Frameworks */,
@@ -197,6 +217,31 @@
 			path = img/buttons;
 			sourceTree = "<group>";
 		};
+		BE7958BB16A606FC00DCCF57 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BE7958BC16A606FC00DCCF57 /* Abstract Model */,
+				BE7958C116A606FC00DCCF57 /* Cache.h */,
+				BE7958C216A606FC00DCCF57 /* Cache.m */,
+				BE7958C316A606FC00DCCF57 /* Settings.h */,
+				BE7958C416A606FC00DCCF57 /* Settings.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		BE7958BC16A606FC00DCCF57 /* Abstract Model */ = {
+			isa = PBXGroup;
+			children = (
+				BE7958BD16A606FC00DCCF57 /* _Cache.h */,
+				BE7958BE16A606FC00DCCF57 /* _Cache.m */,
+				BE7958BF16A606FC00DCCF57 /* _Settings.h */,
+				BE7958C016A606FC00DCCF57 /* _Settings.m */,
+				BE7958C916A60C0800DCCF57 /* NSManagedObject+EasyFetching.h */,
+				BE7958CA16A60C0800DCCF57 /* NSManagedObject+EasyFetching.m */,
+			);
+			path = "Abstract Model";
+			sourceTree = "<group>";
+		};
 		BE917F08161286F200FDA328 = {
 			isa = PBXGroup;
 			children = (
@@ -217,6 +262,7 @@
 		BE917F16161286F200FDA328 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BE467E2516A4EED100C2176C /* CoreData.framework */,
 				BE917F17161286F200FDA328 /* UIKit.framework */,
 				BE917F19161286F200FDA328 /* Foundation.framework */,
 				BE917F1B161286F200FDA328 /* CoreGraphics.framework */,
@@ -227,6 +273,7 @@
 		BE917F1D161286F200FDA328 /* RunCounter */ = {
 			isa = PBXGroup;
 			children = (
+				BE7958BB16A606FC00DCCF57 /* Model */,
 				BE917F26161286F200FDA328 /* AppDelegate.h */,
 				BE917F27161286F200FDA328 /* AppDelegate.m */,
 				BE917F2F161286F200FDA328 /* CreateWorkoutViewController.h */,
@@ -250,6 +297,7 @@
 				BE917F2B161286F200FDA328 /* Default@2x.png */,
 				BE917F2D161286F200FDA328 /* Default-568h@2x.png */,
 				BE467DE216A4894100C2176C /* StoryboardiPhone.storyboard */,
+				BE467E2716A4F11200C2176C /* RunCounterSchema.xcdatamodeld */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -369,6 +417,12 @@
 				BE917F24161286F200FDA328 /* main.m in Sources */,
 				BE917F28161286F200FDA328 /* AppDelegate.m in Sources */,
 				BE917F31161286F200FDA328 /* CreateWorkoutViewController.m in Sources */,
+				BE467E2916A4F11400C2176C /* RunCounterSchema.xcdatamodeld in Sources */,
+				BE7958C516A606FC00DCCF57 /* _Cache.m in Sources */,
+				BE7958C616A606FC00DCCF57 /* _Settings.m in Sources */,
+				BE7958C716A606FC00DCCF57 /* Cache.m in Sources */,
+				BE7958C816A606FC00DCCF57 /* Settings.m in Sources */,
+				BE7958CB16A60C0800DCCF57 /* NSManagedObject+EasyFetching.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -493,6 +547,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		BE467E2716A4F11200C2176C /* RunCounterSchema.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				BE467E2816A4F11400C2176C /* RunCounterSchema.xcdatamodel */,
+			);
+			currentVersion = BE467E2816A4F11400C2176C /* RunCounterSchema.xcdatamodel */;
+			path = RunCounterSchema.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = BE917F0A161286F200FDA328 /* Project object */;
 }

@@ -26,7 +26,6 @@
 @property (nonatomic, strong) IBOutlet UIView *pickerSuperview;
 @property (nonatomic, strong) IBOutlet UIPickerView *timePicker;
 @property (nonatomic, strong) IBOutlet UIButton *startButton;
-
-- (IBAction)startTimer:(UIButton *)sender;
+@property (nonatomic, strong) IBOutlet UISwitch *notificationSwitch;
 
 @end
