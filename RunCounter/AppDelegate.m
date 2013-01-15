@@ -7,34 +7,35 @@
 //
 
 #import "AppDelegate.h"
-#import "ViewController.h"
+#import "CreateWorkoutViewController.h"
 
 #define kMainColorRed 90.0/255.0
 #define kMainColorGreen 72.0/255.0
 #define kMainColorBlue 157.0/255.0
 
 @implementation AppDelegate
-@synthesize splashImageView, navController;
+@synthesize splashImageView;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    //self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     
     CGRect screenBounds = [[UIScreen mainScreen] bounds];
     
     
     /* Controllers Initialization */
-    self.viewController = [[ViewController alloc] initWithNibName:@"ViewController" bundle:nil];
-
-    self.navController = [[UINavigationController alloc] initWithRootViewController:self.viewController];
-    self.navController.navigationBar.tintColor = [UIColor colorWithRed:kMainColorRed green:kMainColorGreen blue:kMainColorBlue alpha:1.0];
-    [self.navController.navigationBar setBackgroundImage:[UIImage imageNamed: @"NavBarPattern"] forBarMetrics:UIBarMetricsDefault];
+    UINavigationController *navController = (UINavigationController *)self.window.rootViewController;
+    CreateWorkoutViewController *viewController = [navController.storyboard instantiateViewControllerWithIdentifier:@"CreateWorkoutViewController"];
+    [navController setViewControllers:@[viewController]];
+    
+    navController.navigationBar.tintColor = [UIColor colorWithRed:kMainColorRed green:kMainColorGreen blue:kMainColorBlue alpha:1.0];
+    [navController.navigationBar setBackgroundImage:[UIImage imageNamed: @"NavBarPattern"] forBarMetrics:UIBarMetricsDefault];
     
     UIImageView* logoView = [[UIImageView alloc] initWithFrame:CGRectMake(100, 6, 120, 36)];
     [logoView setImage:[UIImage imageNamed:@"RunCounterLogoNavBar@2x"]];
     
-    [self.navController.navigationBar addSubview:logoView];
+    [navController.navigationBar addSubview:logoView];
      
     
     /* Splash Screen Initialization */
@@ -47,13 +48,13 @@
         // iPhone 4 - 3.5 inch screen
         [self.splashImageView setImage:[UIImage imageNamed:@"Default@2x"]];
     }
-    [[self.navController view] addSubview:self.splashImageView];
-    [[self.navController view] bringSubviewToFront:self.splashImageView];
+    [[navController view] addSubview:self.splashImageView];
+    [[navController view] bringSubviewToFront:self.splashImageView];
 
     
     /* Window setup */
-    self.window.rootViewController = self.navController;
-    [self.window makeKeyAndVisible];
+//    self.window.rootViewController = navController;
+//    [self.window makeKeyAndVisible];
     [NSNotificationCenter defaultCenter];
     
     
@@ -105,6 +106,16 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+- (BOOL)application:(UIApplication *)application shouldSaveApplicationState:(NSCoder *)coder
+{
+    return YES;
+}
+
+- (BOOL)application:(UIApplication *)application shouldRestoreApplicationState:(NSCoder *)coder
+{
+    return YES;
 }
 
 - (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification

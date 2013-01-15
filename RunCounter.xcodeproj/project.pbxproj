@@ -45,6 +45,7 @@
 		BE467DB716A454BE00C2176C /* bg-tile.png in Resources */ = {isa = PBXBuildFile; fileRef = BE467DB616A454BD00C2176C /* bg-tile.png */; };
 		BE467DB916A4563500C2176C /* RunCounterLogoNavBar.png in Resources */ = {isa = PBXBuildFile; fileRef = BE467DB816A4563400C2176C /* RunCounterLogoNavBar.png */; };
 		BE467DBB16A4571D00C2176C /* RunCounterLogoNavBar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BE467DBA16A4571C00C2176C /* RunCounterLogoNavBar@2x.png */; };
+		BE467DE316A4894200C2176C /* StoryboardiPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE467DE216A4894100C2176C /* StoryboardiPhone.storyboard */; };
 		BE917F18161286F200FDA328 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE917F17161286F200FDA328 /* UIKit.framework */; };
 		BE917F1A161286F200FDA328 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE917F19161286F200FDA328 /* Foundation.framework */; };
 		BE917F1C161286F200FDA328 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE917F1B161286F200FDA328 /* CoreGraphics.framework */; };
@@ -54,8 +55,7 @@
 		BE917F2A161286F200FDA328 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = BE917F29161286F200FDA328 /* Default.png */; };
 		BE917F2C161286F200FDA328 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BE917F2B161286F200FDA328 /* Default@2x.png */; };
 		BE917F2E161286F200FDA328 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BE917F2D161286F200FDA328 /* Default-568h@2x.png */; };
-		BE917F31161286F200FDA328 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE917F30161286F200FDA328 /* ViewController.m */; };
-		BE917F34161286F200FDA328 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE917F32161286F200FDA328 /* ViewController.xib */; };
+		BE917F31161286F200FDA328 /* CreateWorkoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE917F30161286F200FDA328 /* CreateWorkoutViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -97,6 +97,7 @@
 		BE467DB616A454BD00C2176C /* bg-tile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "bg-tile.png"; path = "img/bg-tile.png"; sourceTree = "<group>"; };
 		BE467DB816A4563400C2176C /* RunCounterLogoNavBar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = RunCounterLogoNavBar.png; path = img/RunCounterLogoNavBar.png; sourceTree = "<group>"; };
 		BE467DBA16A4571C00C2176C /* RunCounterLogoNavBar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "RunCounterLogoNavBar@2x.png"; path = "img/RunCounterLogoNavBar@2x.png"; sourceTree = "<group>"; };
+		BE467DE216A4894100C2176C /* StoryboardiPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = StoryboardiPhone.storyboard; sourceTree = "<group>"; };
 		BE917F13161286F200FDA328 /* RunCounter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RunCounter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE917F17161286F200FDA328 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		BE917F19161286F200FDA328 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -110,9 +111,8 @@
 		BE917F29161286F200FDA328 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		BE917F2B161286F200FDA328 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		BE917F2D161286F200FDA328 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		BE917F2F161286F200FDA328 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		BE917F30161286F200FDA328 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		BE917F33161286F200FDA328 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
+		BE917F2F161286F200FDA328 /* CreateWorkoutViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CreateWorkoutViewController.h; sourceTree = "<group>"; };
+		BE917F30161286F200FDA328 /* CreateWorkoutViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CreateWorkoutViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -229,9 +229,8 @@
 			children = (
 				BE917F26161286F200FDA328 /* AppDelegate.h */,
 				BE917F27161286F200FDA328 /* AppDelegate.m */,
-				BE917F2F161286F200FDA328 /* ViewController.h */,
-				BE917F30161286F200FDA328 /* ViewController.m */,
-				BE917F32161286F200FDA328 /* ViewController.xib */,
+				BE917F2F161286F200FDA328 /* CreateWorkoutViewController.h */,
+				BE917F30161286F200FDA328 /* CreateWorkoutViewController.m */,
 				BE917F1E161286F200FDA328 /* Supporting Files */,
 			);
 			path = RunCounter;
@@ -250,6 +249,7 @@
 				BE917F29161286F200FDA328 /* Default.png */,
 				BE917F2B161286F200FDA328 /* Default@2x.png */,
 				BE917F2D161286F200FDA328 /* Default-568h@2x.png */,
+				BE467DE216A4894100C2176C /* StoryboardiPhone.storyboard */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -317,7 +317,6 @@
 				BE917F2A161286F200FDA328 /* Default.png in Resources */,
 				BE917F2C161286F200FDA328 /* Default@2x.png in Resources */,
 				BE917F2E161286F200FDA328 /* Default-568h@2x.png in Resources */,
-				BE917F34161286F200FDA328 /* ViewController.xib in Resources */,
 				BE33EA50161366CC006DFC45 /* beep_caf.caf in Resources */,
 				BE467D4816A3A64300C2176C /* icon.png in Resources */,
 				BE467D4916A3A64300C2176C /* icon@2x.png in Resources */,
@@ -356,6 +355,7 @@
 				BE467DB716A454BE00C2176C /* bg-tile.png in Resources */,
 				BE467DB916A4563500C2176C /* RunCounterLogoNavBar.png in Resources */,
 				BE467DBB16A4571D00C2176C /* RunCounterLogoNavBar@2x.png in Resources */,
+				BE467DE316A4894200C2176C /* StoryboardiPhone.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -368,7 +368,7 @@
 			files = (
 				BE917F24161286F200FDA328 /* main.m in Sources */,
 				BE917F28161286F200FDA328 /* AppDelegate.m in Sources */,
-				BE917F31161286F200FDA328 /* ViewController.m in Sources */,
+				BE917F31161286F200FDA328 /* CreateWorkoutViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -389,14 +389,6 @@
 				BE917F21161286F200FDA328 /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		BE917F32161286F200FDA328 /* ViewController.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				BE917F33161286F200FDA328 /* en */,
-			);
-			name = ViewController.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -459,7 +451,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "RunCounter/RunCounter-Prefix.pch";
 				INFOPLIST_FILE = "RunCounter/RunCounter-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -470,7 +464,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "RunCounter/RunCounter-Prefix.pch";
 				INFOPLIST_FILE = "RunCounter/RunCounter-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

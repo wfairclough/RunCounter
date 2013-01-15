@@ -8,15 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@class ViewController;
+@class CreateWorkoutViewController;
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-
-@property (strong, nonatomic) UINavigationController *navController;
-
-@property (strong, nonatomic) ViewController *viewController;
 
 @property (strong, nonatomic) UIImageView *splashImageView;
 
