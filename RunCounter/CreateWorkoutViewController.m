@@ -10,6 +10,7 @@
 #import "NSManagedObject+EasyFetching.h"
 #import "Settings.h"
 
+
 @interface CreateWorkoutViewController ()
 
 @end
@@ -19,7 +20,7 @@
 @synthesize restTime, workoutTime, setsNumber;
 @synthesize timeStarted;
 @synthesize timePaused = _timePaused;
-@synthesize isActive;
+@synthesize cache;
 
 //+ (ViewController*) viewControllerWithRestorationIdentifierPath:(NSArray *)identifierComponents coder:(NSCoder *)coder {
 //    ViewController* vc;
@@ -64,7 +65,7 @@
 {
     //self.title = NSLocalizedString(@"Title", @"The Title for the Main View");
     
-    isActive = NO;
+    cache = (Cache *)[Cache findLast];
     
     setsValues = @[@"  1", @"  2", @"  3", @"  4", @"  5", @"  6", @"  7", @"  8", @"  9", @"10", @"11", @"12", @"13", @"14", @"15", @"16", @"17", @"18", @"19", @"20", @"21", @"22", @"23", @"24", @"25"];
     
@@ -121,17 +122,34 @@
     [pickerSuperview insertSubview:pickerRestMinsLabel aboveSubview:timePicker];
     [pickerSuperview insertSubview:pickerWorkoutMinsLabel aboveSubview:timePicker];
     
-    
-    UIImage *buttonImage = [[UIImage imageNamed:@"greenButton"]
-                            resizableImageWithCapInsets:UIEdgeInsetsMake(18, 18, 18, 18)];
-    UIImage *buttonImageHighlight = [[UIImage imageNamed:@"greenButtonHighlight"]
-                                     resizableImageWithCapInsets:UIEdgeInsetsMake(18, 18, 18, 18)];
-    
-    // Set the background for any states you plan to use
-    [startButton setBackgroundImage:buttonImage forState:UIControlStateNormal];
-    [startButton setBackgroundImage:buttonImageHighlight forState:UIControlStateHighlighted];
-//    [startButton.titleLabel setText:NSLocalizedString(@"StartWorkout", @"Start Workout Title")];
-//    [startButton.titleLabel setTextColor:[UIColor whiteColor]];
+    // Setup view based on whether the newest cashe item is Active or not
+    if ((cache != nil) && (cache.isActiveValue))
+    {
+        [self setStartButtonActive:YES];
+        
+        int setsRow = [[cache sets] integerValue] - 1;
+        int workoutRow = ([[cache workoutSecs] integerValue] / 60) - 1;
+        int restRow = ([[cache restSecs] integerValue] / 60) - 1 ;
+        
+        [self.timePicker selectRow:setsRow inComponent:0 animated:YES];
+        [self.timePicker selectRow:workoutRow inComponent:1 animated:YES];
+        [self.timePicker selectRow:restRow inComponent:2 animated:YES];
+        
+        if ((setsRow + 1) > 1)
+            [pickerSetsLabel setText:@"sets"];
+        
+        if ((workoutRow + 1) > 1)
+            [pickerWorkoutMinsLabel setText:@"mins"];
+        
+        if ((workoutRow + 1) > 1)
+            [pickerRestMinsLabel setText:@"mins"];
+        
+    }
+    else
+    {
+        [self setStartButtonActive:NO];
+    }
+
     
     [timePicker setDataSource:self];
     [timePicker setDelegate:self];
@@ -139,6 +157,44 @@
     Settings* settings = (Settings *)[Settings findFirst];
     [notificationSwitch setOn:settings.isNotificationsOnValue];
     
+}
+
+- (void)resetPickerview
+{
+    [self.timePicker selectRow:0 inComponent:0 animated:YES];
+    [self.timePicker selectRow:0 inComponent:1 animated:YES];
+    [self.timePicker selectRow:0 inComponent:2 animated:YES];
+    
+    [pickerSetsLabel setText:@"set"];
+    [pickerWorkoutMinsLabel setText:@"min"];
+    [pickerRestMinsLabel setText:@"min"];
+}
+
+- (void)setStartButtonActive:(BOOL)isActive
+{
+    UIImage *buttonImage;
+    UIImage *buttonImageHighlight;
+    
+    if (isActive)
+    {
+        buttonImage = [[UIImage imageNamed:@"orangeButton"]
+                       resizableImageWithCapInsets:UIEdgeInsetsMake(18, 18, 18, 18)];
+        buttonImageHighlight = [[UIImage imageNamed:@"orangeButtonHighlight"]
+                                resizableImageWithCapInsets:UIEdgeInsetsMake(18, 18, 18, 18)];
+        [startButton setTitle:NSLocalizedString(@"EndWorkout", @"End Workout Title") forState:UIControlStateNormal];
+    }
+    else
+    {
+        buttonImage = [[UIImage imageNamed:@"greenButton"]
+                       resizableImageWithCapInsets:UIEdgeInsetsMake(18, 18, 18, 18)];
+        buttonImageHighlight = [[UIImage imageNamed:@"greenButtonHighlight"]
+                                resizableImageWithCapInsets:UIEdgeInsetsMake(18, 18, 18, 18)];
+        [startButton setTitle:NSLocalizedString(@"StartWorkout", @"Start Workout Title") forState:UIControlStateNormal];
+    }
+    
+    // Set the background for any states you plan to use
+    [startButton setBackgroundImage:buttonImage forState:UIControlStateNormal];
+    [startButton setBackgroundImage:buttonImageHighlight forState:UIControlStateHighlighted];
 }
 
 - (void)didReceiveMemoryWarning
@@ -180,24 +236,33 @@
         [app cancelAllLocalNotifications];
         
     }
+
     
-    
-    
-    if (!isActive)
+    if ((cache != nil) && (cache.isActiveValue))
     {
-        isActive = YES;
         
-        // Change Button
-        UIImage *buttonImage = [[UIImage imageNamed:@"orangeButton"]
-                                resizableImageWithCapInsets:UIEdgeInsetsMake(18, 18, 18, 18)];
-        UIImage *buttonImageHighlight = [[UIImage imageNamed:@"orangeButtonHighlight"]
-                                         resizableImageWithCapInsets:UIEdgeInsetsMake(18, 18, 18, 18)];
+        [cache setIsActiveValue:NO];
+        [cache setTimePaused:[NSDate date]];
         
-        // Set the background for any states you plan to use
-        [startButton setBackgroundImage:buttonImage forState:UIControlStateNormal];
-        [startButton setBackgroundImage:buttonImageHighlight forState:UIControlStateHighlighted];
+        [self setStartButtonActive:NO];
         
-        [startButton setTitle:NSLocalizedString(@"EndWorkout", @"End Workout Title") forState:UIControlStateNormal];
+        [self resetPickerview];
+        
+    }
+    else
+    {
+        cache = (Cache*)[Cache insertNewEntity];
+        [cache setCreatedAt:[NSDate date]];
+        [cache setSets:setsNumber];
+        [cache setWorkoutSecs:[NSNumber numberWithDouble:workoutTime]];
+        [cache setRestSecs:[NSNumber numberWithDouble:restTime]];
+        [cache setIsActiveValue:YES];
+        
+        NSTimeInterval eta = (([setsNumber intValue] * workoutTime) + ([setsNumber intValue] * restTime)) - restTime;
+        
+        [cache setEta:[NSDate dateWithTimeIntervalSinceNow:eta]];
+        
+        [self setStartButtonActive:YES];
         
         // Create Local Notifications for all Workout and Rest end times.
         for (int setNum = 1; setNum <= [setsNumber intValue]; setNum++) {
@@ -260,22 +325,20 @@
             }
             
         }
+        
     }
-    else
+    
+    NSManagedObjectContext* context = [cache managedObjectContext];
+
+    NSError* error = nil;
+    
+    [context save:&error];
+    
+    if (error != nil)
     {
-        isActive = NO;
-        
-        UIImage *buttonImage = [[UIImage imageNamed:@"greenButton"]
-                                resizableImageWithCapInsets:UIEdgeInsetsMake(18, 18, 18, 18)];
-        UIImage *buttonImageHighlight = [[UIImage imageNamed:@"greenButtonHighlight"]
-                                         resizableImageWithCapInsets:UIEdgeInsetsMake(18, 18, 18, 18)];
-        
-        // Set the background for any states you plan to use
-        [startButton setBackgroundImage:buttonImage forState:UIControlStateNormal];
-        [startButton setBackgroundImage:buttonImageHighlight forState:UIControlStateHighlighted];
-        
-        [startButton setTitle:NSLocalizedString(@"StartWorkout", @"Start Workout Title") forState:UIControlStateNormal];
+        // Error handling
     }
+    
 }
 
 #pragma mark - Data  Source 

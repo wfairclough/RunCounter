@@ -104,7 +104,7 @@
         //handle errors
     }
     
-    return [results objectAtIndex:0];
+    return ([results count] > 0) ? [results objectAtIndex:0] : nil;
 }
 
 

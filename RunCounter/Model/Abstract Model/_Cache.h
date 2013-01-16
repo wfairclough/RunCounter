@@ -5,10 +5,15 @@
 
 
 extern const struct CacheAttributes {
-	__unsafe_unretained NSString *restMins;
+	__unsafe_unretained NSString *createdAt;
+	__unsafe_unretained NSString *eta;
+	__unsafe_unretained NSString *isActive;
+	__unsafe_unretained NSString *restSecs;
 	__unsafe_unretained NSString *sets;
+	__unsafe_unretained NSString *timePaused;
 	__unsafe_unretained NSString *timeStarted;
-	__unsafe_unretained NSString *workoutMins;
+	__unsafe_unretained NSString *updatedAt;
+	__unsafe_unretained NSString *workoutSecs;
 } CacheAttributes;
 
 extern const struct CacheRelationships {
@@ -16,6 +21,11 @@ extern const struct CacheRelationships {
 
 extern const struct CacheFetchedProperties {
 } CacheFetchedProperties;
+
+
+
+
+
 
 
 
@@ -36,15 +46,49 @@ extern const struct CacheFetchedProperties {
 
 
 
-@property (nonatomic, strong) NSNumber* restMins;
+@property (nonatomic, strong) NSDate* createdAt;
 
 
 
-@property int16_t restMinsValue;
-- (int16_t)restMinsValue;
-- (void)setRestMinsValue:(int16_t)value_;
+//- (BOOL)validateCreatedAt:(id*)value_ error:(NSError**)error_;
 
-//- (BOOL)validateRestMins:(id*)value_ error:(NSError**)error_;
+
+
+
+
+@property (nonatomic, strong) NSDate* eta;
+
+
+
+//- (BOOL)validateEta:(id*)value_ error:(NSError**)error_;
+
+
+
+
+
+@property (nonatomic, strong) NSNumber* isActive;
+
+
+
+@property BOOL isActiveValue;
+- (BOOL)isActiveValue;
+- (void)setIsActiveValue:(BOOL)value_;
+
+//- (BOOL)validateIsActive:(id*)value_ error:(NSError**)error_;
+
+
+
+
+
+@property (nonatomic, strong) NSNumber* restSecs;
+
+
+
+@property int16_t restSecsValue;
+- (int16_t)restSecsValue;
+- (void)setRestSecsValue:(int16_t)value_;
+
+//- (BOOL)validateRestSecs:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -64,6 +108,16 @@ extern const struct CacheFetchedProperties {
 
 
 
+@property (nonatomic, strong) NSDate* timePaused;
+
+
+
+//- (BOOL)validateTimePaused:(id*)value_ error:(NSError**)error_;
+
+
+
+
+
 @property (nonatomic, strong) NSDate* timeStarted;
 
 
@@ -74,15 +128,25 @@ extern const struct CacheFetchedProperties {
 
 
 
-@property (nonatomic, strong) NSNumber* workoutMins;
+@property (nonatomic, strong) NSDate* updatedAt;
 
 
 
-@property int16_t workoutMinsValue;
-- (int16_t)workoutMinsValue;
-- (void)setWorkoutMinsValue:(int16_t)value_;
+//- (BOOL)validateUpdatedAt:(id*)value_ error:(NSError**)error_;
 
-//- (BOOL)validateWorkoutMins:(id*)value_ error:(NSError**)error_;
+
+
+
+
+@property (nonatomic, strong) NSNumber* workoutSecs;
+
+
+
+@property int16_t workoutSecsValue;
+- (int16_t)workoutSecsValue;
+- (void)setWorkoutSecsValue:(int16_t)value_;
+
+//- (BOOL)validateWorkoutSecs:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -98,11 +162,32 @@ extern const struct CacheFetchedProperties {
 @interface _Cache (CoreDataGeneratedPrimitiveAccessors)
 
 
-- (NSNumber*)primitiveRestMins;
-- (void)setPrimitiveRestMins:(NSNumber*)value;
+- (NSDate*)primitiveCreatedAt;
+- (void)setPrimitiveCreatedAt:(NSDate*)value;
 
-- (int16_t)primitiveRestMinsValue;
-- (void)setPrimitiveRestMinsValue:(int16_t)value_;
+
+
+
+- (NSDate*)primitiveEta;
+- (void)setPrimitiveEta:(NSDate*)value;
+
+
+
+
+- (NSNumber*)primitiveIsActive;
+- (void)setPrimitiveIsActive:(NSNumber*)value;
+
+- (BOOL)primitiveIsActiveValue;
+- (void)setPrimitiveIsActiveValue:(BOOL)value_;
+
+
+
+
+- (NSNumber*)primitiveRestSecs;
+- (void)setPrimitiveRestSecs:(NSNumber*)value;
+
+- (int16_t)primitiveRestSecsValue;
+- (void)setPrimitiveRestSecsValue:(int16_t)value_;
 
 
 
@@ -116,17 +201,29 @@ extern const struct CacheFetchedProperties {
 
 
 
+- (NSDate*)primitiveTimePaused;
+- (void)setPrimitiveTimePaused:(NSDate*)value;
+
+
+
+
 - (NSDate*)primitiveTimeStarted;
 - (void)setPrimitiveTimeStarted:(NSDate*)value;
 
 
 
 
-- (NSNumber*)primitiveWorkoutMins;
-- (void)setPrimitiveWorkoutMins:(NSNumber*)value;
+- (NSDate*)primitiveUpdatedAt;
+- (void)setPrimitiveUpdatedAt:(NSDate*)value;
 
-- (int16_t)primitiveWorkoutMinsValue;
-- (void)setPrimitiveWorkoutMinsValue:(int16_t)value_;
+
+
+
+- (NSNumber*)primitiveWorkoutSecs;
+- (void)setPrimitiveWorkoutSecs:(NSNumber*)value;
+
+- (int16_t)primitiveWorkoutSecsValue;
+- (void)setPrimitiveWorkoutSecsValue:(int16_t)value_;
 
 
 

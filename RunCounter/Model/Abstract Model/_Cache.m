@@ -4,10 +4,15 @@
 #import "_Cache.h"
 
 const struct CacheAttributes CacheAttributes = {
-	.restMins = @"restMins",
+	.createdAt = @"createdAt",
+	.eta = @"eta",
+	.isActive = @"isActive",
+	.restSecs = @"restSecs",
 	.sets = @"sets",
+	.timePaused = @"timePaused",
 	.timeStarted = @"timeStarted",
-	.workoutMins = @"workoutMins",
+	.updatedAt = @"updatedAt",
+	.workoutSecs = @"workoutSecs",
 };
 
 const struct CacheRelationships CacheRelationships = {
@@ -42,8 +47,13 @@ const struct CacheFetchedProperties CacheFetchedProperties = {
 + (NSSet*)keyPathsForValuesAffectingValueForKey:(NSString*)key {
 	NSSet *keyPaths = [super keyPathsForValuesAffectingValueForKey:key];
 	
-	if ([key isEqualToString:@"restMinsValue"]) {
-		NSSet *affectingKey = [NSSet setWithObject:@"restMins"];
+	if ([key isEqualToString:@"isActiveValue"]) {
+		NSSet *affectingKey = [NSSet setWithObject:@"isActive"];
+		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
+		return keyPaths;
+	}
+	if ([key isEqualToString:@"restSecsValue"]) {
+		NSSet *affectingKey = [NSSet setWithObject:@"restSecs"];
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
 		return keyPaths;
 	}
@@ -52,8 +62,8 @@ const struct CacheFetchedProperties CacheFetchedProperties = {
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
 		return keyPaths;
 	}
-	if ([key isEqualToString:@"workoutMinsValue"]) {
-		NSSet *affectingKey = [NSSet setWithObject:@"workoutMins"];
+	if ([key isEqualToString:@"workoutSecsValue"]) {
+		NSSet *affectingKey = [NSSet setWithObject:@"workoutSecs"];
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
 		return keyPaths;
 	}
@@ -64,26 +74,66 @@ const struct CacheFetchedProperties CacheFetchedProperties = {
 
 
 
-@dynamic restMins;
+@dynamic createdAt;
 
 
 
-- (int16_t)restMinsValue {
-	NSNumber *result = [self restMins];
+
+
+
+@dynamic eta;
+
+
+
+
+
+
+@dynamic isActive;
+
+
+
+- (BOOL)isActiveValue {
+	NSNumber *result = [self isActive];
+	return [result boolValue];
+}
+
+- (void)setIsActiveValue:(BOOL)value_ {
+	[self setIsActive:[NSNumber numberWithBool:value_]];
+}
+
+- (BOOL)primitiveIsActiveValue {
+	NSNumber *result = [self primitiveIsActive];
+	return [result boolValue];
+}
+
+- (void)setPrimitiveIsActiveValue:(BOOL)value_ {
+	[self setPrimitiveIsActive:[NSNumber numberWithBool:value_]];
+}
+
+
+
+
+
+@dynamic restSecs;
+
+
+
+- (int16_t)restSecsValue {
+	NSNumber *result = [self restSecs];
 	return [result shortValue];
 }
 
-- (void)setRestMinsValue:(int16_t)value_ {
-	[self setRestMins:[NSNumber numberWithShort:value_]];
+- (void)setRestSecsValue:(int16_t)value_ {
+	[self setRestSecs:[NSNumber numberWithShort:value_]];
 }
 
-- (int16_t)primitiveRestMinsValue {
-	NSNumber *result = [self primitiveRestMins];
+- (int16_t)primitiveRestSecsValue {
+	NSNumber *result = [self primitiveRestSecs];
 	return [result shortValue];
 }
 
-- (void)setPrimitiveRestMinsValue:(int16_t)value_ {
-	[self setPrimitiveRestMins:[NSNumber numberWithShort:value_]];
+- (void)setPrimitiveRestSecsValue:(int16_t)value_ {
+	[self setPrimitiveRestSecs:[NSNumber numberWithShort:value_]];
 }
 
 
@@ -116,6 +166,13 @@ const struct CacheFetchedProperties CacheFetchedProperties = {
 
 
 
+@dynamic timePaused;
+
+
+
+
+
+
 @dynamic timeStarted;
 
 
@@ -123,26 +180,33 @@ const struct CacheFetchedProperties CacheFetchedProperties = {
 
 
 
-@dynamic workoutMins;
+@dynamic updatedAt;
 
 
 
-- (int16_t)workoutMinsValue {
-	NSNumber *result = [self workoutMins];
+
+
+
+@dynamic workoutSecs;
+
+
+
+- (int16_t)workoutSecsValue {
+	NSNumber *result = [self workoutSecs];
 	return [result shortValue];
 }
 
-- (void)setWorkoutMinsValue:(int16_t)value_ {
-	[self setWorkoutMins:[NSNumber numberWithShort:value_]];
+- (void)setWorkoutSecsValue:(int16_t)value_ {
+	[self setWorkoutSecs:[NSNumber numberWithShort:value_]];
 }
 
-- (int16_t)primitiveWorkoutMinsValue {
-	NSNumber *result = [self primitiveWorkoutMins];
+- (int16_t)primitiveWorkoutSecsValue {
+	NSNumber *result = [self primitiveWorkoutSecs];
 	return [result shortValue];
 }
 
-- (void)setPrimitiveWorkoutMinsValue:(int16_t)value_ {
-	[self setPrimitiveWorkoutMins:[NSNumber numberWithShort:value_]];
+- (void)setPrimitiveWorkoutSecsValue:(int16_t)value_ {
+	[self setPrimitiveWorkoutSecs:[NSNumber numberWithShort:value_]];
 }
 
 
