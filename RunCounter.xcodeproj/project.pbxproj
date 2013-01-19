@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BE1DB1BE16A7094B009B2265 /* _WorkoutSet.m in Sources */ = {isa = PBXBuildFile; fileRef = BE1DB1BD16A7094A009B2265 /* _WorkoutSet.m */; };
+		BE1DB1C216A70954009B2265 /* WorkoutSet.m in Sources */ = {isa = PBXBuildFile; fileRef = BE1DB1C116A70954009B2265 /* WorkoutSet.m */; };
 		BE33EA50161366CC006DFC45 /* beep_caf.caf in Resources */ = {isa = PBXBuildFile; fileRef = BE33EA4F161366CC006DFC45 /* beep_caf.caf */; };
 		BE467D4816A3A64300C2176C /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = BE467D4616A3A64300C2176C /* icon.png */; };
 		BE467D4916A3A64300C2176C /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BE467D4716A3A64300C2176C /* icon@2x.png */; };
@@ -63,9 +65,22 @@
 		BE917F2C161286F200FDA328 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BE917F2B161286F200FDA328 /* Default@2x.png */; };
 		BE917F2E161286F200FDA328 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BE917F2D161286F200FDA328 /* Default-568h@2x.png */; };
 		BE917F31161286F200FDA328 /* CreateWorkoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE917F30161286F200FDA328 /* CreateWorkoutViewController.m */; };
+		BEBB37E116A9F2E2003FD97A /* SoundPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = BEBB37E016A9F2E2003FD97A /* SoundPlayer.m */; };
+		BEBB37E816A9F3B3003FD97A /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEBB37E716A9F3B3003FD97A /* AVFoundation.framework */; };
+		BEBB37EA16A9F6B3003FD97A /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEBB37E916A9F6B3003FD97A /* CoreAudio.framework */; };
+		BEBB37EC16A9F745003FD97A /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEBB37EB16A9F745003FD97A /* AudioToolbox.framework */; };
+		BEBB37F316AAE9B0003FD97A /* Alert1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BEBB37EE16AAE9B0003FD97A /* Alert1.mp3 */; };
+		BEBB37F416AAE9B0003FD97A /* Alert2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BEBB37EF16AAE9B0003FD97A /* Alert2.mp3 */; };
+		BEBB37F516AAE9B0003FD97A /* Alert3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BEBB37F016AAE9B0003FD97A /* Alert3.mp3 */; };
+		BEBB37F616AAE9B0003FD97A /* Alert4.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BEBB37F116AAE9B0003FD97A /* Alert4.mp3 */; };
+		BEBB37F716AAE9B0003FD97A /* Alert5.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BEBB37F216AAE9B0003FD97A /* Alert5.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BE1DB1BC16A7094A009B2265 /* _WorkoutSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _WorkoutSet.h; sourceTree = "<group>"; };
+		BE1DB1BD16A7094A009B2265 /* _WorkoutSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _WorkoutSet.m; sourceTree = "<group>"; };
+		BE1DB1C016A70954009B2265 /* WorkoutSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkoutSet.h; sourceTree = "<group>"; };
+		BE1DB1C116A70954009B2265 /* WorkoutSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkoutSet.m; sourceTree = "<group>"; };
 		BE33EA4F161366CC006DFC45 /* beep_caf.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = beep_caf.caf; sourceTree = "<group>"; };
 		BE467D4616A3A64300C2176C /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		BE467D4716A3A64300C2176C /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
@@ -132,6 +147,17 @@
 		BE917F2D161286F200FDA328 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		BE917F2F161286F200FDA328 /* CreateWorkoutViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CreateWorkoutViewController.h; sourceTree = "<group>"; };
 		BE917F30161286F200FDA328 /* CreateWorkoutViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CreateWorkoutViewController.m; sourceTree = "<group>"; };
+		BEBB37DF16A9F2E2003FD97A /* SoundPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundPlayer.h; sourceTree = "<group>"; };
+		BEBB37E016A9F2E2003FD97A /* SoundPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoundPlayer.m; sourceTree = "<group>"; };
+		BEBB37E716A9F3B3003FD97A /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		BEBB37E916A9F6B3003FD97A /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
+		BEBB37EB16A9F745003FD97A /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		BEBB37ED16A9FD53003FD97A /* 808_120bpm.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = 808_120bpm.caf; sourceTree = "<group>"; };
+		BEBB37EE16AAE9B0003FD97A /* Alert1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Alert1.mp3; sourceTree = "<group>"; };
+		BEBB37EF16AAE9B0003FD97A /* Alert2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Alert2.mp3; sourceTree = "<group>"; };
+		BEBB37F016AAE9B0003FD97A /* Alert3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Alert3.mp3; sourceTree = "<group>"; };
+		BEBB37F116AAE9B0003FD97A /* Alert4.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Alert4.mp3; sourceTree = "<group>"; };
+		BEBB37F216AAE9B0003FD97A /* Alert5.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Alert5.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +165,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BEBB37EC16A9F745003FD97A /* AudioToolbox.framework in Frameworks */,
+				BEBB37EA16A9F6B3003FD97A /* CoreAudio.framework in Frameworks */,
+				BEBB37E816A9F3B3003FD97A /* AVFoundation.framework in Frameworks */,
 				BE467E2616A4EED100C2176C /* CoreData.framework in Frameworks */,
 				BE917F18161286F200FDA328 /* UIKit.framework in Frameworks */,
 				BE917F1A161286F200FDA328 /* Foundation.framework in Frameworks */,
@@ -225,6 +254,8 @@
 				BE7958C216A606FC00DCCF57 /* Cache.m */,
 				BE7958C316A606FC00DCCF57 /* Settings.h */,
 				BE7958C416A606FC00DCCF57 /* Settings.m */,
+				BE1DB1C016A70954009B2265 /* WorkoutSet.h */,
+				BE1DB1C116A70954009B2265 /* WorkoutSet.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -236,6 +267,8 @@
 				BE7958BE16A606FC00DCCF57 /* _Cache.m */,
 				BE7958BF16A606FC00DCCF57 /* _Settings.h */,
 				BE7958C016A606FC00DCCF57 /* _Settings.m */,
+				BE1DB1BC16A7094A009B2265 /* _WorkoutSet.h */,
+				BE1DB1BD16A7094A009B2265 /* _WorkoutSet.m */,
 				BE7958C916A60C0800DCCF57 /* NSManagedObject+EasyFetching.h */,
 				BE7958CA16A60C0800DCCF57 /* NSManagedObject+EasyFetching.m */,
 			);
@@ -262,6 +295,9 @@
 		BE917F16161286F200FDA328 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BEBB37EB16A9F745003FD97A /* AudioToolbox.framework */,
+				BEBB37E916A9F6B3003FD97A /* CoreAudio.framework */,
+				BEBB37E716A9F3B3003FD97A /* AVFoundation.framework */,
 				BE467E2516A4EED100C2176C /* CoreData.framework */,
 				BE917F17161286F200FDA328 /* UIKit.framework */,
 				BE917F19161286F200FDA328 /* Foundation.framework */,
@@ -278,6 +314,8 @@
 				BE917F27161286F200FDA328 /* AppDelegate.m */,
 				BE917F2F161286F200FDA328 /* CreateWorkoutViewController.h */,
 				BE917F30161286F200FDA328 /* CreateWorkoutViewController.m */,
+				BEBB37DF16A9F2E2003FD97A /* SoundPlayer.h */,
+				BEBB37E016A9F2E2003FD97A /* SoundPlayer.m */,
 				BE917F1E161286F200FDA328 /* Supporting Files */,
 			);
 			path = RunCounter;
@@ -305,6 +343,12 @@
 		BEC3A45416134105008492E1 /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
+				BEBB37EE16AAE9B0003FD97A /* Alert1.mp3 */,
+				BEBB37EF16AAE9B0003FD97A /* Alert2.mp3 */,
+				BEBB37F016AAE9B0003FD97A /* Alert3.mp3 */,
+				BEBB37F116AAE9B0003FD97A /* Alert4.mp3 */,
+				BEBB37F216AAE9B0003FD97A /* Alert5.mp3 */,
+				BEBB37ED16A9FD53003FD97A /* 808_120bpm.caf */,
 				BE33EA4F161366CC006DFC45 /* beep_caf.caf */,
 			);
 			name = Sounds;
@@ -404,6 +448,11 @@
 				BE467DB916A4563500C2176C /* RunCounterLogoNavBar.png in Resources */,
 				BE467DBB16A4571D00C2176C /* RunCounterLogoNavBar@2x.png in Resources */,
 				BE467DE316A4894200C2176C /* StoryboardiPhone.storyboard in Resources */,
+				BEBB37F316AAE9B0003FD97A /* Alert1.mp3 in Resources */,
+				BEBB37F416AAE9B0003FD97A /* Alert2.mp3 in Resources */,
+				BEBB37F516AAE9B0003FD97A /* Alert3.mp3 in Resources */,
+				BEBB37F616AAE9B0003FD97A /* Alert4.mp3 in Resources */,
+				BEBB37F716AAE9B0003FD97A /* Alert5.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -423,6 +472,9 @@
 				BE7958C716A606FC00DCCF57 /* Cache.m in Sources */,
 				BE7958C816A606FC00DCCF57 /* Settings.m in Sources */,
 				BE7958CB16A60C0800DCCF57 /* NSManagedObject+EasyFetching.m in Sources */,
+				BE1DB1BE16A7094B009B2265 /* _WorkoutSet.m in Sources */,
+				BE1DB1C216A70954009B2265 /* WorkoutSet.m in Sources */,
+				BEBB37E116A9F2E2003FD97A /* SoundPlayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

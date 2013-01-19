@@ -7,7 +7,9 @@ const struct SettingsAttributes SettingsAttributes = {
 	.alertSoundName = @"alertSoundName",
 	.createdAt = @"createdAt",
 	.isNotificationsOn = @"isNotificationsOn",
+	.restAlertSoundName = @"restAlertSoundName",
 	.updatedAt = @"updatedAt",
+	.workoutAlertSoundName = @"workoutAlertSoundName",
 };
 
 const struct SettingsRelationships SettingsRelationships = {
@@ -94,7 +96,21 @@ const struct SettingsFetchedProperties SettingsFetchedProperties = {
 
 
 
+@dynamic restAlertSoundName;
+
+
+
+
+
+
 @dynamic updatedAt;
+
+
+
+
+
+
+@dynamic workoutAlertSoundName;
 
 
 

@@ -8,7 +8,9 @@ extern const struct SettingsAttributes {
 	__unsafe_unretained NSString *alertSoundName;
 	__unsafe_unretained NSString *createdAt;
 	__unsafe_unretained NSString *isNotificationsOn;
+	__unsafe_unretained NSString *restAlertSoundName;
 	__unsafe_unretained NSString *updatedAt;
+	__unsafe_unretained NSString *workoutAlertSoundName;
 } SettingsAttributes;
 
 extern const struct SettingsRelationships {
@@ -16,6 +18,8 @@ extern const struct SettingsRelationships {
 
 extern const struct SettingsFetchedProperties {
 } SettingsFetchedProperties;
+
+
 
 
 
@@ -70,11 +74,31 @@ extern const struct SettingsFetchedProperties {
 
 
 
+@property (nonatomic, strong) NSString* restAlertSoundName;
+
+
+
+//- (BOOL)validateRestAlertSoundName:(id*)value_ error:(NSError**)error_;
+
+
+
+
+
 @property (nonatomic, strong) NSDate* updatedAt;
 
 
 
 //- (BOOL)validateUpdatedAt:(id*)value_ error:(NSError**)error_;
+
+
+
+
+
+@property (nonatomic, strong) NSString* workoutAlertSoundName;
+
+
+
+//- (BOOL)validateWorkoutAlertSoundName:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -111,8 +135,20 @@ extern const struct SettingsFetchedProperties {
 
 
 
+- (NSString*)primitiveRestAlertSoundName;
+- (void)setPrimitiveRestAlertSoundName:(NSString*)value;
+
+
+
+
 - (NSDate*)primitiveUpdatedAt;
 - (void)setPrimitiveUpdatedAt:(NSDate*)value;
+
+
+
+
+- (NSString*)primitiveWorkoutAlertSoundName;
+- (void)setPrimitiveWorkoutAlertSoundName:(NSString*)value;
 
 
 

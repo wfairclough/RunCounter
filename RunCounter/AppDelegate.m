@@ -10,6 +10,9 @@
 #import "CreateWorkoutViewController.h"
 #import "NSManagedObject+EasyFetching.h"
 #import "Settings.h"
+#import "WorkoutSet.h"
+#import "SoundPlayer.h"
+#import "Cache.h"
 
 #define kMainColorRed 90.0/255.0
 #define kMainColorGreen 72.0/255.0
@@ -132,6 +135,10 @@
 - (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification
 {
     NSLog(@"Did receive Notification \n\n\n %@", notification);
+    
+    NSString* soundName = [[notification userInfo] valueForKey:kAlerySoundNameKey];
+    
+    [[SoundPlayer sharedInstance] playSound:soundName];
 }
 
 
@@ -256,15 +263,17 @@
 
 - (void) setupSettingsData
 {
-    NSLog(@"Count: %d", [[Settings findAllObjects] count]);
-    
     if ([[Settings findAllObjects] count] == 0)
     {
+        NSLog(@"No Settings. Initial Setup of Settings.");
+        
         Settings* s = (Settings *)[Settings insertNewEntity];
         
         [s setAlertSoundName:@"beed_caf.caf"];
         [s setIsNotificationsOnValue:YES];
         [s setCreatedAt:[NSDate date]];
+        [s setWorkoutAlertSoundName:@"Alert3.mp3"];
+        [s setRestAlertSoundName:@"Alert2.mp3"];
         
         NSError* error = nil;
         

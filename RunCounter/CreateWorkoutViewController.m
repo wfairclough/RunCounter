@@ -9,6 +9,9 @@
 #import "CreateWorkoutViewController.h"
 #import "NSManagedObject+EasyFetching.h"
 #import "Settings.h"
+#import "WorkoutSet.h"
+
+#define kPollingInterval 1
 
 
 @interface CreateWorkoutViewController ()
@@ -16,7 +19,10 @@
 @end
 
 @implementation CreateWorkoutViewController
-@synthesize timePicker, minsValues, setsValues, pickerSuperview, pickerSetsLabel, pickerRestMinsLabel, pickerWorkoutMinsLabel, startButton, notificationSwitch;
+@synthesize timePicker, minsValues, setsValues, pickerSuperview,
+            pickerSetsLabel, pickerRestMinsLabel, pickerWorkoutMinsLabel,
+            startButton, notificationSwitch, timeLabel;
+@synthesize pollingTimer, dateFormatter;
 @synthesize restTime, workoutTime, setsNumber;
 @synthesize timeStarted;
 @synthesize timePaused = _timePaused;
@@ -92,6 +98,8 @@
     
     [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"bg-tile"]]];
 
+    dateFormatter = [[NSDateFormatter alloc] init];
+    [self.dateFormatter setDateFormat:@"mm : ss.S"];
     
     pickerSetsLabel = [[UILabel alloc] initWithFrame:CGRectMake(66, 93, 70, 30)];
     pickerSetsLabel.text = @"set";
@@ -144,6 +152,7 @@
         if ((workoutRow + 1) > 1)
             [pickerRestMinsLabel setText:@"mins"];
         
+        [self setupPollingTimer];
     }
     else
     {
@@ -157,6 +166,15 @@
     Settings* settings = (Settings *)[Settings findFirst];
     [notificationSwitch setOn:settings.isNotificationsOnValue];
     
+}
+
+- (void) setupPollingTimer
+{
+    pollingTimer = [NSTimer scheduledTimerWithTimeInterval:kPollingInterval
+                                                    target:self
+                                                  selector:@selector(updateTime)
+                                                  userInfo:nil
+                                                   repeats:YES];
 }
 
 - (void)resetPickerview
@@ -240,17 +258,24 @@
     
     if ((cache != nil) && (cache.isActiveValue))
     {
+        NSDate* date = [NSDate date];
         
         [cache setIsActiveValue:NO];
-        [cache setTimePaused:[NSDate date]];
+        [cache setTimePaused:date];
+        [cache setUpdatedAt:date];
         
         [self setStartButtonActive:NO];
         
         [self resetPickerview];
         
+        [pollingTimer invalidate];
+        pollingTimer = nil;
+        
     }
     else
     {
+        Settings* settings = (Settings *)[Settings findFirst];
+        
         cache = (Cache*)[Cache insertNewEntity];
         [cache setCreatedAt:[NSDate date]];
         [cache setSets:setsNumber];
@@ -264,28 +289,43 @@
         
         [self setStartButtonActive:YES];
         
+        
+        [self setupPollingTimer];
+        
+        
         // Create Local Notifications for all Workout and Rest end times.
         for (int setNum = 1; setNum <= [setsNumber intValue]; setNum++) {
+            
+            WorkoutSet* wSet = (WorkoutSet *)[WorkoutSet insertNewEntity];
+            [wSet setCache:cache];
             
             // Create a new workout notification.
             UILocalNotification* workoutOverAlarm = [[UILocalNotification alloc] init];
             if (workoutOverAlarm)
             {
+                
                 NSTimeInterval workoutTimeIntervalFirst = setNum * workoutTime;
                 NSTimeInterval workoutTimeInterval = (setNum * (restTime + workoutTime)) - restTime;
                 
                 NSDate* theDate;
                 if (setNum == 1) {
                     theDate = [[NSDate alloc] initWithTimeIntervalSinceNow:workoutTimeIntervalFirst];
+                    [wSet setWorkoutTimeInterval:[NSNumber numberWithDouble:workoutTimeIntervalFirst]];
                 } else {
                     theDate = [[NSDate alloc] initWithTimeIntervalSinceNow:workoutTimeInterval];
+                    [wSet setWorkoutTimeInterval:[NSNumber numberWithDouble:workoutTimeInterval]];
                 }
+                [wSet setDateWorkoutIsCompleted:theDate];
+                
                 
                 NSLog(@"WorkoutOverTime: %@  Set: %d", theDate, setNum);
                 
                 workoutOverAlarm.fireDate = theDate;
                 workoutOverAlarm.timeZone = [NSTimeZone defaultTimeZone];
-                workoutOverAlarm.soundName = @"beep_caf.caf";
+                workoutOverAlarm.soundName = [settings workoutAlertSoundName];
+                NSDictionary *userInfo = [NSDictionary dictionaryWithObjects:@[kWorkoutType, [settings workoutAlertSoundName]] forKeys:@[kAlarmTypeKey, kAlerySoundNameKey]];
+                workoutOverAlarm.userInfo = userInfo;
+                
                 
                 NSString* restString;
                 
@@ -308,13 +348,19 @@
                 if (restOverAlarm)
                 {
                     NSTimeInterval restTimeInterval = (setNum * (restTime + workoutTime));
-                    
+
                     NSDate* theDate = [[NSDate alloc] initWithTimeIntervalSinceNow:restTimeInterval];
+
+                    [wSet setRestTimeInterval:[NSNumber numberWithDouble:restTimeInterval]];
+                    [wSet setDateRestIsCompleted:theDate];
+                    
                     NSLog(@"RestOverTime: %@  Set: %d", theDate, setNum);
                     
                     restOverAlarm.fireDate = theDate;
                     restOverAlarm.timeZone = [NSTimeZone defaultTimeZone];
-                    restOverAlarm.soundName = @"beep_caf.caf";
+                    restOverAlarm.soundName = [settings restAlertSoundName];
+                    NSDictionary *userInfo = [NSDictionary dictionaryWithObjects:@[kRestType, [settings restAlertSoundName]] forKeys:@[kAlarmTypeKey, kAlerySoundNameKey]];
+                    restOverAlarm.userInfo = userInfo;
                     
                     NSString* workoutString = [NSString stringWithFormat:@"Set %d complete! Time to start set %d for %d min", setNum, (setNum + 1), (int)(workoutTime/60)];
                     
@@ -339,6 +385,13 @@
         // Error handling
     }
     
+}
+
+- (void) updateTime
+{
+    NSTimeInterval timeLeft = [[cache eta] timeIntervalSinceDate:[NSDate date]];
+    
+    self.timeLabel.text = [NSString stringWithFormat:@"Secs Left: %.0f", timeLeft];
 }
 
 #pragma mark - Data  Source 

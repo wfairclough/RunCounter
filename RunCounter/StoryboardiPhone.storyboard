@@ -84,12 +84,21 @@
                                             <constraint firstItem="c0b-w7-Yty" firstAttribute="leading" secondItem="LoL-da-6lX" secondAttribute="leading" type="default" id="ysF-44-Mpr"/>
                                         </constraints>
                                     </view>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Time" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J5l-Dt-g2K">
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="288" id="a7Q-V9-Zb3"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" red="0.90196084980000002" green="0.90196084980000002" blue="0.90196084980000002" alpha="1" colorSpace="deviceRGB"/>
                                 <constraints>
                                     <constraint firstItem="qqh-Qy-4Db" firstAttribute="top" relation="greaterThanOrEqual" secondItem="9ID-JG-3Hd" secondAttribute="top" constant="11" type="user" id="1Pu-9f-Hsb"/>
                                     <constraint firstAttribute="trailing" secondItem="LoL-da-6lX" secondAttribute="trailing" constant="-160" id="2Tc-4L-wss"/>
                                     <constraint firstItem="qqh-Qy-4Db" firstAttribute="top" secondItem="9ID-JG-3Hd" secondAttribute="top" constant="11" type="user" id="4en-6j-sPG"/>
+                                    <constraint firstItem="J5l-Dt-g2K" firstAttribute="leading" secondItem="9ID-JG-3Hd" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="5Mp-8r-HDa"/>
                                     <constraint firstItem="uRn-om-ceT" firstAttribute="top" secondItem="9ID-JG-3Hd" secondAttribute="top" constant="264" type="user" id="5P5-6m-9Ur"/>
                                     <constraint firstItem="Mao-ZB-y81" firstAttribute="leading" secondItem="9ID-JG-3Hd" secondAttribute="leading" constant="120" id="5zK-Cw-dxK"/>
                                     <constraint firstItem="Vjs-23-6Gt" firstAttribute="leading" secondItem="9ID-JG-3Hd" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="6TJ-cW-wuv"/>
@@ -108,9 +117,10 @@
                                     <constraint firstAttribute="trailing" secondItem="Vjs-23-6Gt" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="ldC-Wu-uN8"/>
                                     <constraint firstItem="uRn-om-ceT" firstAttribute="leading" secondItem="hkM-7u-l2z" secondAttribute="leading" type="default" id="mbO-z2-HCH"/>
                                     <constraint firstItem="fv1-ys-Ke7" firstAttribute="leading" secondItem="9ID-JG-3Hd" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="nai-Dq-DJW"/>
+                                    <constraint firstItem="uRn-om-ceT" firstAttribute="trailing" secondItem="J5l-Dt-g2K" secondAttribute="trailing" type="default" id="pZi-q2-gAT"/>
                                     <constraint firstItem="qqh-Qy-4Db" firstAttribute="baseline" secondItem="Mao-ZB-y81" secondAttribute="baseline" type="default" id="pag-gO-1Le"/>
-                                    <constraint firstAttribute="trailing" secondItem="uRn-om-ceT" secondAttribute="trailing" constant="12" id="r5y-mi-ayl"/>
                                     <constraint firstItem="LoL-da-6lX" firstAttribute="leading" secondItem="9ID-JG-3Hd" secondAttribute="leading" type="default" id="w5w-Mq-7S3"/>
+                                    <constraint firstAttribute="bottom" secondItem="J5l-Dt-g2K" secondAttribute="bottom" constant="157" id="zBz-4T-Mbi"/>
                                 </constraints>
                                 <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
                                 <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
@@ -129,6 +139,7 @@
                         <outlet property="notificationSwitch" destination="uRn-om-ceT" id="Ttv-5B-GgA"/>
                         <outlet property="pickerSuperview" destination="LoL-da-6lX" id="nZh-Xf-yEu"/>
                         <outlet property="startButton" destination="Vjs-23-6Gt" id="bOt-1h-Dqk"/>
+                        <outlet property="timeLabel" destination="J5l-Dt-g2K" id="y1A-sw-7ss"/>
                         <outlet property="timePicker" destination="c0b-w7-Yty" id="yMG-XD-205"/>
                     </connections>
                 </viewController>
@@ -158,6 +169,7 @@
                 <relationship kind="outlet" name="notificationSwitch" candidateClass="UISwitch"/>
                 <relationship kind="outlet" name="pickerSuperview" candidateClass="UIView"/>
                 <relationship kind="outlet" name="startButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="timeLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="timePicker" candidateClass="UIPickerView"/>
             </relationships>
         </class>

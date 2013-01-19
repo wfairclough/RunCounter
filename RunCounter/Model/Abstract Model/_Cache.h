@@ -17,11 +17,13 @@ extern const struct CacheAttributes {
 } CacheAttributes;
 
 extern const struct CacheRelationships {
+	__unsafe_unretained NSString *workoutSets;
 } CacheRelationships;
 
 extern const struct CacheFetchedProperties {
 } CacheFetchedProperties;
 
+@class WorkoutSet;
 
 
 
@@ -152,10 +154,22 @@ extern const struct CacheFetchedProperties {
 
 
 
+@property (nonatomic, strong) NSOrderedSet *workoutSets;
+
+- (NSMutableOrderedSet*)workoutSetsSet;
+
+
+
+
 
 @end
 
 @interface _Cache (CoreDataGeneratedAccessors)
+
+- (void)addWorkoutSets:(NSOrderedSet*)value_;
+- (void)removeWorkoutSets:(NSOrderedSet*)value_;
+- (void)addWorkoutSetsObject:(WorkoutSet*)value_;
+- (void)removeWorkoutSetsObject:(WorkoutSet*)value_;
 
 @end
 
@@ -226,6 +240,11 @@ extern const struct CacheFetchedProperties {
 - (void)setPrimitiveWorkoutSecsValue:(int16_t)value_;
 
 
+
+
+
+- (NSMutableOrderedSet*)primitiveWorkoutSets;
+- (void)setPrimitiveWorkoutSets:(NSMutableOrderedSet*)value;
 
 
 @end

@@ -9,6 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "Cache.h"
 
+#define kWorkoutType @"workout"
+#define kRestType @"rest"
+#define kAlarmTypeKey @"AlarmType"
+#define kAlerySoundNameKey @"AlertSoundName"
+
 @interface CreateWorkoutViewController : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate>
 
 @property (nonatomic) NSTimeInterval restTime;
@@ -26,6 +31,10 @@
 @property (nonatomic, strong) IBOutlet UIPickerView *timePicker;
 @property (nonatomic, strong) IBOutlet UIButton *startButton;
 @property (nonatomic, strong) IBOutlet UISwitch *notificationSwitch;
+@property (nonatomic, strong) IBOutlet UILabel *timeLabel;
+
+@property (nonatomic, strong) NSTimer *pollingTimer;
+@property (nonatomic, strong) NSDateFormatter *dateFormatter;
 
 @property (nonatomic, strong) Cache *cache;
 @end

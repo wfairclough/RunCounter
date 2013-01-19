@@ -16,6 +16,7 @@ const struct CacheAttributes CacheAttributes = {
 };
 
 const struct CacheRelationships CacheRelationships = {
+	.workoutSets = @"workoutSets",
 };
 
 const struct CacheFetchedProperties CacheFetchedProperties = {
@@ -212,6 +213,19 @@ const struct CacheFetchedProperties CacheFetchedProperties = {
 
 
 
+
+@dynamic workoutSets;
+
+	
+- (NSMutableOrderedSet*)workoutSetsSet {
+	[self willAccessValueForKey:@"workoutSets"];
+  
+	NSMutableOrderedSet *result = (NSMutableOrderedSet*)[self mutableOrderedSetValueForKey:@"workoutSets"];
+  
+	[self didAccessValueForKey:@"workoutSets"];
+	return result;
+}
+	
 
 
 

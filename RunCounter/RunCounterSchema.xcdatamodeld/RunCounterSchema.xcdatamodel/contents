@@ -10,15 +10,26 @@
         <attribute name="timeStarted" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="updatedAt" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="workoutSecs" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="workoutSets" optional="YES" toMany="YES" minCount="1" deletionRule="Nullify" ordered="YES" destinationEntity="WorkoutSet" inverseName="cache" inverseEntity="WorkoutSet" syncable="YES"/>
     </entity>
     <entity name="Settings" representedClassName="Settings" syncable="YES">
         <attribute name="alertSoundName" optional="YES" attributeType="String" defaultValueString="beep_caf.caf" syncable="YES"/>
         <attribute name="createdAt" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="isNotificationsOn" optional="YES" attributeType="Boolean" defaultValueString="YES" syncable="YES"/>
+        <attribute name="restAlertSoundName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="updatedAt" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="workoutAlertSoundName" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="WorkoutSet" representedClassName="WorkoutSet" syncable="YES">
+        <attribute name="dateRestIsCompleted" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="dateWorkoutIsCompleted" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="restTimeInterval" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="workoutTimeInterval" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="cache" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Cache" inverseName="workoutSets" inverseEntity="Cache" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Cache" positionX="160" positionY="192" width="128" height="180"/>
-        <element name="Settings" positionX="160" positionY="192" width="128" height="105"/>
+        <element name="Cache" positionX="160" positionY="192" width="128" height="195"/>
+        <element name="Settings" positionX="160" positionY="192" width="128" height="135"/>
+        <element name="WorkoutSet" positionX="160" positionY="192" width="128" height="120"/>
     </elements>
 </model>
