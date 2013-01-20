@@ -21,7 +21,7 @@
 @implementation CreateWorkoutViewController
 @synthesize timePicker, minsValues, setsValues, pickerSuperview,
             pickerSetsLabel, pickerRestMinsLabel, pickerWorkoutMinsLabel,
-            startButton, notificationSwitch, timeLabel;
+            startButton, timeLabel;
 @synthesize pollingTimer, dateFormatter;
 @synthesize restTime, workoutTime, setsNumber;
 @synthesize timeStarted;
@@ -114,6 +114,7 @@
     
     /* Setup the Custom Settings button of the navigation bar */
     UIButton *customSettingsButton = [UIButton buttonWithType:UIButtonTypeCustom];
+
     [customSettingsButton setFrame:CGRectMake(0.0f, 0.0f, 25.0f, 25.0f)];
     [customSettingsButton addTarget:self action:@selector(pressedSettingsButton:) forControlEvents:UIControlEventTouchUpInside];
     [customSettingsButton setImage:[UIImage imageNamed:@"gear@2x"] forState:UIControlStateNormal];
@@ -167,9 +168,6 @@
     {
         [self setStartButtonActive:NO];
     }
-    
-    Settings* settings = (Settings *)[Settings findFirst];
-    [notificationSwitch setOn:settings.isNotificationsOnValue];
     
 }
 
@@ -243,37 +241,9 @@
 
 - (IBAction)pressedSettingsButton:(id)sender
 {
-    
+    [self performSegueWithIdentifier:@"ModalSettingsSegue" sender:self];
 }
 
-
-- (IBAction)setNotificationSwitchVal:(UISwitch *)sender
-{
-    Settings* settings = (Settings *)[Settings findFirst];
-    [settings setUpdatedAt:[NSDate date]];
-    [settings setIsNotificationsOnValue:sender.isOn];
-    
-    NSManagedObjectContext* context = [settings managedObjectContext];
-    
-    NSError* error = nil;
-    
-    [context save:&error];
-    
-    if (error != nil)
-    {
-        // Error handling
-        NSLog(@"Error saving context in - setNotificationSwitchVal: %@,   userinfo: %@", error, error.userInfo);
-        
-        if ([[[error userInfo] allKeys] containsObject:NSDetailedErrorsKey])
-        {
-            NSArray* errors = [[error userInfo] objectForKey:NSDetailedErrorsKey];
-            for (NSError* e in errors)
-            {
-                NSLog(@"Userinfo NSDetailedError: %@", e);
-            }
-        }
-    }
-}
 
 - (IBAction)startTimer:(UIButton *)sender
 {

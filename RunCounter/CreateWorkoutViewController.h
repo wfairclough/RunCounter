@@ -30,7 +30,6 @@
 @property (nonatomic, strong) IBOutlet UIView *pickerSuperview;
 @property (nonatomic, strong) IBOutlet UIPickerView *timePicker;
 @property (nonatomic, strong) IBOutlet UIButton *startButton;
-@property (nonatomic, strong) IBOutlet UISwitch *notificationSwitch;
 @property (nonatomic, strong) IBOutlet UILabel *timeLabel;
 
 @property (nonatomic, strong) NSTimer *pollingTimer;

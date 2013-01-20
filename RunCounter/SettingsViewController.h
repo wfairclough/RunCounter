@@ -7,7 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AppStyle.h"
+#import "NSManagedObject+EasyFetching.h"
+#import "Settings.h"
 
 @interface SettingsViewController : UITableViewController
+
+@property (nonatomic, strong) IBOutlet UINavigationBar *navigationBar;
+@property (nonatomic, strong) IBOutlet UISwitch *notificationSwitch;
+
+
+- (IBAction)setNotificationSwitchVal:(UISwitch *)sender;
 
 @end

@@ -14,14 +14,7 @@
 #import "WorkoutSet.h"
 #import "SoundPlayer.h"
 #import "Cache.h"
-
-#define kMainColorRed 90.0/255.0
-#define kMainColorGreen 72.0/255.0
-#define kMainColorBlue 157.0/255.0
-
-#define kLightPurple "#5a489d"
-#define kDarkPurple "#421252"
-
+#import "AppStyle.h"
 
 @implementation AppDelegate
 @synthesize splashImageView;
@@ -39,16 +32,8 @@
     
     /* Controllers Initialization */
     UINavigationController *navController = (UINavigationController *)self.window.rootViewController;
-    CreateWorkoutViewController *viewController = [navController.storyboard instantiateViewControllerWithIdentifier:@"CreateWorkoutViewController"];
-    [navController setViewControllers:@[viewController]];
     
-    navController.navigationBar.tintColor = [UIColor colorWithRed:kMainColorRed green:kMainColorGreen blue:kMainColorBlue alpha:1.0];
-    [navController.navigationBar setBackgroundImage:[UIImage imageNamed: @"NavBarPattern"] forBarMetrics:UIBarMetricsDefault];
-    
-    UIImageView* logoView = [[UIImageView alloc] initWithFrame:CGRectMake(100, 6, 120, 36)];
-    [logoView setImage:[UIImage imageNamed:@"RunCounterLogoNavBar@2x"]];
-    
-    [navController.navigationBar addSubview:logoView];
+    [[AppStyle sharedInstance] styleNavigationBar:navController.navigationBar withAppNameImage:YES];
      
     
     /* Splash Screen Initialization */

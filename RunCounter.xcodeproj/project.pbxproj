@@ -77,6 +77,7 @@
 		BEE7888416AC7CBE00F8095A /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEE7888316AC7CBE00F8095A /* SettingsViewController.m */; };
 		BEE7888716AC859C00F8095A /* gear.png in Resources */ = {isa = PBXBuildFile; fileRef = BEE7888616AC859C00F8095A /* gear.png */; };
 		BEE7888916AC865900F8095A /* gear@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BEE7888816AC865900F8095A /* gear@2x.png */; };
+		BEE7888C16AC962100F8095A /* AppStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = BEE7888B16AC962100F8095A /* AppStyle.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -165,6 +166,8 @@
 		BEE7888316AC7CBE00F8095A /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		BEE7888616AC859C00F8095A /* gear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = gear.png; path = img/gear.png; sourceTree = "<group>"; };
 		BEE7888816AC865900F8095A /* gear@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "gear@2x.png"; path = "img/gear@2x.png"; sourceTree = "<group>"; };
+		BEE7888A16AC962100F8095A /* AppStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppStyle.h; sourceTree = "<group>"; };
+		BEE7888B16AC962100F8095A /* AppStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppStyle.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -321,6 +324,8 @@
 				BE7958BB16A606FC00DCCF57 /* Model */,
 				BE917F26161286F200FDA328 /* AppDelegate.h */,
 				BE917F27161286F200FDA328 /* AppDelegate.m */,
+				BEE7888A16AC962100F8095A /* AppStyle.h */,
+				BEE7888B16AC962100F8095A /* AppStyle.m */,
 				BE917F2F161286F200FDA328 /* CreateWorkoutViewController.h */,
 				BE917F30161286F200FDA328 /* CreateWorkoutViewController.m */,
 				BEE7888216AC7CBE00F8095A /* SettingsViewController.h */,
@@ -489,6 +494,7 @@
 				BE1DB1C216A70954009B2265 /* WorkoutSet.m in Sources */,
 				BEBB37E116A9F2E2003FD97A /* SoundPlayer.m in Sources */,
 				BEE7888416AC7CBE00F8095A /* SettingsViewController.m in Sources */,
+				BEE7888C16AC962100F8095A /* AppStyle.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
