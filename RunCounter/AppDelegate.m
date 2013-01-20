@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import <AudioToolbox/AudioToolbox.h>
 #import "CreateWorkoutViewController.h"
 #import "NSManagedObject+EasyFetching.h"
 #import "Settings.h"
@@ -139,6 +140,8 @@
     NSString* soundName = [[notification userInfo] valueForKey:kAlerySoundNameKey];
     
     [[SoundPlayer sharedInstance] playSound:soundName];
+    
+    AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
 }
 
 
@@ -281,7 +284,17 @@
         
         if (error != nil)
         {
-            NSLog(@"Error: %@", error);
+            // Error handling
+            NSLog(@"Error saving context in - setupSettingsData: %@,   userinfo: %@", error, error.userInfo);
+            
+            if ([[[error userInfo] allKeys] containsObject:NSDetailedErrorsKey])
+            {
+                NSArray* errors = [[error userInfo] objectForKey:NSDetailedErrorsKey];
+                for (NSError* e in errors)
+                {
+                    NSLog(@"Userinfo NSDetailedError: %@", e);
+                }
+            }
         }
     }
 }

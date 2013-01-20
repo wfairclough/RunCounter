@@ -177,6 +177,12 @@
                                                    repeats:YES];
 }
 
+- (void) invalidatePollingTimer
+{
+    [pollingTimer invalidate];
+    pollingTimer = nil;
+}
+
 - (void)resetPickerview
 {
     [self.timePicker selectRow:0 inComponent:0 animated:YES];
@@ -235,7 +241,17 @@
     
     if (error != nil)
     {
-        // Error Handling
+        // Error handling
+        NSLog(@"Error saving context in - setNotificationSwitchVal: %@,   userinfo: %@", error, error.userInfo);
+        
+        if ([[[error userInfo] allKeys] containsObject:NSDetailedErrorsKey])
+        {
+            NSArray* errors = [[error userInfo] objectForKey:NSDetailedErrorsKey];
+            for (NSError* e in errors)
+            {
+                NSLog(@"Userinfo NSDetailedError: %@", e);
+            }
+        }
     }
 }
 
@@ -268,8 +284,7 @@
         
         [self resetPickerview];
         
-        [pollingTimer invalidate];
-        pollingTimer = nil;
+        [self invalidatePollingTimer];
         
     }
     else
@@ -383,6 +398,16 @@
     if (error != nil)
     {
         // Error handling
+        NSLog(@"Error saving context in - startTimer: %@,   userinfo: %@", error, error.userInfo);
+        
+        if ([[[error userInfo] allKeys] containsObject:NSDetailedErrorsKey])
+        {
+            NSArray* errors = [[error userInfo] objectForKey:NSDetailedErrorsKey];
+            for (NSError* e in errors)
+            {
+                NSLog(@"Userinfo NSDetailedError: %@", e);
+            }
+        }
     }
     
 }
@@ -390,6 +415,12 @@
 - (void) updateTime
 {
     NSTimeInterval timeLeft = [[cache eta] timeIntervalSinceDate:[NSDate date]];
+    
+    if (timeLeft <= 0)
+    {
+        timeLeft = 0.0;
+        [self invalidatePollingTimer];   
+    }
     
     self.timeLabel.text = [NSString stringWithFormat:@"Secs Left: %.0f", timeLeft];
 }
