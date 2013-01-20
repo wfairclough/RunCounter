@@ -67,6 +67,16 @@
     return self;
 }
 
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+
+#pragma mark - Initializations
+
 - (void) initView
 {
     //self.title = NSLocalizedString(@"Title", @"The Title for the Main View");
@@ -229,11 +239,13 @@
     [startButton setBackgroundImage:buttonImageHighlight forState:UIControlStateHighlighted];
 }
 
-- (void)didReceiveMemoryWarning
+#pragma mark - Actions
+
+- (IBAction)pressedSettingsButton:(id)sender
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    
 }
+
 
 - (IBAction)setNotificationSwitchVal:(UISwitch *)sender
 {
@@ -261,11 +273,6 @@
             }
         }
     }
-}
-
-- (IBAction)pressedSettingsButton:(id)sender
-{
-    
 }
 
 - (IBAction)startTimer:(UIButton *)sender

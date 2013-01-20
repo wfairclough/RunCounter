@@ -133,6 +133,10 @@
     return YES;
 }
 
+
+/**
+ * When the application receives a Local notification be sure to play the proper sound for whether it is a RestOver or WorkoutOver sinario 
+ */
 - (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification
 {
     NSLog(@"Did receive Notification \n\n\n %@", notification);
