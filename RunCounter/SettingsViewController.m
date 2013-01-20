@@ -10,14 +10,42 @@
 
 @implementation SettingsViewController
 
+- (SettingsViewController *)init
+{
+    if (self)
+    {
+        self = [super init];
+    }
+    
+    return self;
+}
+
+# pragma mark - Initializations
 
 - (void)viewDidLoad
 {
     [[AppStyle sharedInstance] styleNavigationBar:self.navigationBar];
     
+    /* Setup Done button for SettingsViewController */
+    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:@"Done"
+                                                                    style:UIBarButtonSystemItemDone
+                                                                   target:self
+                                                                   action:@selector(pressedCloseButton:)];
+    
+    UINavigationItem *item = [[UINavigationItem alloc] initWithTitle:@"Settings"];
+    item.rightBarButtonItem = rightButton;
+    item.hidesBackButton = YES;
+    [self.navigationBar pushNavigationItem:item animated:NO];
+
+
+    
     Settings* settings = (Settings *)[Settings findFirst];
     [self.notificationSwitch setOn:settings.isNotificationsOnValue];
+
 }
+
+
+#pragma mark - Actions
 
 - (IBAction)setNotificationSwitchVal:(UISwitch *)sender
 {
@@ -46,5 +74,11 @@
         }
     }
 }
+
+- (IBAction)pressedCloseButton:(id)sender
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
 
 @end
