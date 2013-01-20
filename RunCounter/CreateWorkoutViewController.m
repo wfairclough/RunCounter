@@ -94,41 +94,40 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
     
+    // Add backgroun pattern
     [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"bg-tile"]]];
 
     dateFormatter = [[NSDateFormatter alloc] init];
     [self.dateFormatter setDateFormat:@"mm : ss.S"];
     
+    
+    /* Setup the Custom Settings button of the navigation bar */
+    UIButton *customSettingsButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [customSettingsButton setFrame:CGRectMake(0.0f, 0.0f, 25.0f, 25.0f)];
+    [customSettingsButton addTarget:self action:@selector(pressedSettingsButton:) forControlEvents:UIControlEventTouchUpInside];
+    [customSettingsButton setImage:[UIImage imageNamed:@"gear@2x"] forState:UIControlStateNormal];
+
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:customSettingsButton];
+    
+    
+    /* Setup the Labels for each of the componenets of the Picker View */
     pickerSetsLabel = [[UILabel alloc] initWithFrame:CGRectMake(66, 93, 70, 30)];
-    pickerSetsLabel.text = @"set";
-    pickerSetsLabel.textColor = [UIColor colorWithRed:74.0/255.0 green:78.0/255.0 blue:95.0/255.0 alpha:1.0];
-    pickerSetsLabel.font = [UIFont boldSystemFontOfSize:18];
-    pickerSetsLabel.backgroundColor = [UIColor clearColor];
-    pickerSetsLabel.shadowColor = [UIColor whiteColor];
-    pickerSetsLabel.shadowOffset = CGSizeMake (0,1);
+    [self initializePickerViewLabel:pickerSetsLabel withText:@"set"];
     
     pickerWorkoutMinsLabel = [[UILabel alloc] initWithFrame:CGRectMake(165, 93, 70, 30)];
-    pickerWorkoutMinsLabel.text = @"min";
-    pickerWorkoutMinsLabel.textColor = [UIColor colorWithRed:74.0/255.0 green:78.0/255.0 blue:95.0/255.0 alpha:1.0];
-    pickerWorkoutMinsLabel.font = [UIFont boldSystemFontOfSize:18];
-    pickerWorkoutMinsLabel.backgroundColor = [UIColor clearColor];
-    pickerWorkoutMinsLabel.shadowColor = [UIColor whiteColor];
-    pickerWorkoutMinsLabel.shadowOffset = CGSizeMake (0,1);
+    [self initializePickerViewLabel:pickerWorkoutMinsLabel withText:@"min"];
     
     pickerRestMinsLabel = [[UILabel alloc] initWithFrame:CGRectMake(265, 93, 70, 30)];
-    pickerRestMinsLabel.text = @"min";
-    pickerRestMinsLabel.textColor = [UIColor colorWithRed:74.0/255.0 green:78.0/255.0 blue:95.0/255.0 alpha:1.0];
-    pickerRestMinsLabel.font = [UIFont boldSystemFontOfSize:18];
-    pickerRestMinsLabel.backgroundColor = [UIColor clearColor];
-    pickerRestMinsLabel.shadowColor = [UIColor whiteColor];
-    pickerRestMinsLabel.shadowOffset = CGSizeMake (0,1);
-    
+    [self initializePickerViewLabel:pickerRestMinsLabel withText:@"min"];
     
     [pickerSuperview insertSubview:pickerSetsLabel aboveSubview:timePicker];
     [pickerSuperview insertSubview:pickerRestMinsLabel aboveSubview:timePicker];
     [pickerSuperview insertSubview:pickerWorkoutMinsLabel aboveSubview:timePicker];
+    
+    [timePicker setDataSource:self];
+    [timePicker setDelegate:self];
+    
     
     // Setup view based on whether the newest cashe item is Active or not
     if ((cache != nil) && (cache.isActiveValue))
@@ -158,14 +157,23 @@
     {
         [self setStartButtonActive:NO];
     }
-
-    
-    [timePicker setDataSource:self];
-    [timePicker setDelegate:self];
     
     Settings* settings = (Settings *)[Settings findFirst];
     [notificationSwitch setOn:settings.isNotificationsOnValue];
     
+}
+
+/**
+ Pass a reference to the Label you want initialized for the compenents of the PickerView
+*/
+- (void) initializePickerViewLabel:(UILabel *)label withText:(NSString *)text
+{
+    label.text = text;
+    label.textColor = [UIColor colorWithRed:74.0/255.0 green:78.0/255.0 blue:95.0/255.0 alpha:1.0];
+    label.font = [UIFont boldSystemFontOfSize:18];
+    label.backgroundColor = [UIColor clearColor];
+    label.shadowColor = [UIColor whiteColor];
+    label.shadowOffset = CGSizeMake (0,1);
 }
 
 - (void) setupPollingTimer
@@ -253,6 +261,11 @@
             }
         }
     }
+}
+
+- (IBAction)pressedSettingsButton:(id)sender
+{
+    
 }
 
 - (IBAction)startTimer:(UIButton *)sender

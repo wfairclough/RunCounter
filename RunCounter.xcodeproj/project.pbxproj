@@ -74,6 +74,9 @@
 		BEBB37F516AAE9B0003FD97A /* Alert3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BEBB37F016AAE9B0003FD97A /* Alert3.mp3 */; };
 		BEBB37F616AAE9B0003FD97A /* Alert4.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BEBB37F116AAE9B0003FD97A /* Alert4.mp3 */; };
 		BEBB37F716AAE9B0003FD97A /* Alert5.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BEBB37F216AAE9B0003FD97A /* Alert5.mp3 */; };
+		BEE7888416AC7CBE00F8095A /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEE7888316AC7CBE00F8095A /* SettingsViewController.m */; };
+		BEE7888716AC859C00F8095A /* gear.png in Resources */ = {isa = PBXBuildFile; fileRef = BEE7888616AC859C00F8095A /* gear.png */; };
+		BEE7888916AC865900F8095A /* gear@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BEE7888816AC865900F8095A /* gear@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -158,6 +161,10 @@
 		BEBB37F016AAE9B0003FD97A /* Alert3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Alert3.mp3; sourceTree = "<group>"; };
 		BEBB37F116AAE9B0003FD97A /* Alert4.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Alert4.mp3; sourceTree = "<group>"; };
 		BEBB37F216AAE9B0003FD97A /* Alert5.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Alert5.mp3; sourceTree = "<group>"; };
+		BEE7888216AC7CBE00F8095A /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		BEE7888316AC7CBE00F8095A /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
+		BEE7888616AC859C00F8095A /* gear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = gear.png; path = img/gear.png; sourceTree = "<group>"; };
+		BEE7888816AC865900F8095A /* gear@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "gear@2x.png"; path = "img/gear@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -199,6 +206,8 @@
 		BE467D5416A3BB8700C2176C /* img */ = {
 			isa = PBXGroup;
 			children = (
+				BEE7888816AC865900F8095A /* gear@2x.png */,
+				BEE7888616AC859C00F8095A /* gear.png */,
 				BE467DBA16A4571C00C2176C /* RunCounterLogoNavBar@2x.png */,
 				BE467DB816A4563400C2176C /* RunCounterLogoNavBar.png */,
 				BE467DB616A454BD00C2176C /* bg-tile.png */,
@@ -314,6 +323,8 @@
 				BE917F27161286F200FDA328 /* AppDelegate.m */,
 				BE917F2F161286F200FDA328 /* CreateWorkoutViewController.h */,
 				BE917F30161286F200FDA328 /* CreateWorkoutViewController.m */,
+				BEE7888216AC7CBE00F8095A /* SettingsViewController.h */,
+				BEE7888316AC7CBE00F8095A /* SettingsViewController.m */,
 				BEBB37DF16A9F2E2003FD97A /* SoundPlayer.h */,
 				BEBB37E016A9F2E2003FD97A /* SoundPlayer.m */,
 				BE917F1E161286F200FDA328 /* Supporting Files */,
@@ -453,6 +464,8 @@
 				BEBB37F516AAE9B0003FD97A /* Alert3.mp3 in Resources */,
 				BEBB37F616AAE9B0003FD97A /* Alert4.mp3 in Resources */,
 				BEBB37F716AAE9B0003FD97A /* Alert5.mp3 in Resources */,
+				BEE7888716AC859C00F8095A /* gear.png in Resources */,
+				BEE7888916AC865900F8095A /* gear@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -475,6 +488,7 @@
 				BE1DB1BE16A7094B009B2265 /* _WorkoutSet.m in Sources */,
 				BE1DB1C216A70954009B2265 /* WorkoutSet.m in Sources */,
 				BEBB37E116A9F2E2003FD97A /* SoundPlayer.m in Sources */,
+				BEE7888416AC7CBE00F8095A /* SettingsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
