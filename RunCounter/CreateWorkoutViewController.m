@@ -409,7 +409,9 @@
     if (timeLeft <= 0)
     {
         timeLeft = 0.0;
-        [self invalidatePollingTimer];   
+        [self invalidatePollingTimer];
+        [self setStartButtonActive:NO];
+        [self resetPickerview];
     }
     
     self.timeLabel.text = [NSString stringWithFormat:@"Secs Left: %.0f", timeLeft];

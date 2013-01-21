@@ -7,6 +7,10 @@
 //
 
 #import "SettingsViewController.h"
+#import "AlertNoisePickerController.h"
+
+#define kTableViewLocalNotificationsSection 0
+#define kTableViewAlertNoisesSection 1
 
 @implementation SettingsViewController
 
@@ -24,7 +28,11 @@
 
 - (void)viewDidLoad
 {
-    [[AppStyle sharedInstance] styleNavigationBar:self.navigationBar];
+    [super viewDidLoad];
+    
+    self.title = NSLocalizedString(@"SettingsTitle", @"Settings title");
+    
+    [[AppStyle sharedInstance] styleNavigationBar:self.navigationController.navigationBar];
     
     /* Setup Done button for SettingsViewController */
     UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:@"Done"
@@ -32,10 +40,13 @@
                                                                    target:self
                                                                    action:@selector(pressedCloseButton:)];
     
-    UINavigationItem *item = [[UINavigationItem alloc] initWithTitle:@"Settings"];
-    item.rightBarButtonItem = rightButton;
-    item.hidesBackButton = YES;
-    [self.navigationBar pushNavigationItem:item animated:NO];
+//    UINavigationItem *item = [[UINavigationItem alloc] initWithTitle:@"Settings"];
+//    item.rightBarButtonItem = rightButton;
+//    item.hidesBackButton = YES;
+
+    self.navigationItem.rightBarButtonItem = rightButton;
+    
+//    [self.navigationBar pushNavigationItem:item animated:NO];
 
 
     
@@ -78,6 +89,34 @@
 - (IBAction)pressedCloseButton:(id)sender
 {
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+#pragma mark - Table View Delegate
+
+- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.section == kTableViewAlertNoisesSection)
+    {
+        [self performSegueWithIdentifier:@"PushAlertNoiseSegue" sender:indexPath];
+    }
+    
+    NSLog(@"Did select row at indexpath: Section - %d   Row - %d", indexPath.section, indexPath.row);
+}
+
+
+#pragma mark - Storyboard Segues
+
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"PushAlertNoiseSegue"])
+    {
+        Settings* settings = (Settings *)[Settings findFirst];
+        NSString* workoutSoundName = settings.workoutAlertSoundName;
+        NSString* restSoundName = settings.restAlertSoundName;
+        
+        ((AlertNoisePickerController *)segue.destinationViewController).isWorkoutNoise = (((NSIndexPath *)sender).row == 0);
+        ((AlertNoisePickerController *)segue.destinationViewController).soundName = (((NSIndexPath *)sender).row == 0) ? workoutSoundName : restSoundName;
+    }
 }
 
 

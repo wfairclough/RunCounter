@@ -1,5 +1,5 @@
 //
-//  SettingsViewController.h
+//  AlertNoisePickerController.h
 //  RunCounter
 //
 //  Created by Will Fairclough on 2013-01-20.
@@ -11,11 +11,11 @@
 #import "NSManagedObject+EasyFetching.h"
 #import "Settings.h"
 
-@interface SettingsViewController : UITableViewController
+@interface AlertNoisePickerController : UITableViewController
 
-@property (nonatomic, strong) IBOutlet UISwitch *notificationSwitch;
+@property BOOL isWorkoutNoise;
 
-
-- (IBAction)setNotificationSwitchVal:(UISwitch *)sender;
+@property (nonatomic, strong) NSIndexPath* selectedIndexPath;
+@property (nonatomic, strong) NSString* soundName;
 
 @end

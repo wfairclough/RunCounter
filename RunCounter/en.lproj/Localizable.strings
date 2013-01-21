@@ -9,3 +9,7 @@
 "Title" = "Run Counter";
 "StartWorkout" = "Start Workout";
 "EndWorkout" = "End Workout";
+"SettingsTitle" = "Settings";
+"AlertNoisePickerTitle" = "Pick an Alert Noise";
+"WorkoutAlertNoise" = "Workout Alert Noise";
+"RestAlertNoise" = "Rest Alert Noise";

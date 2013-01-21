@@ -78,6 +78,7 @@
 		BEE7888716AC859C00F8095A /* gear.png in Resources */ = {isa = PBXBuildFile; fileRef = BEE7888616AC859C00F8095A /* gear.png */; };
 		BEE7888916AC865900F8095A /* gear@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BEE7888816AC865900F8095A /* gear@2x.png */; };
 		BEE7888C16AC962100F8095A /* AppStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = BEE7888B16AC962100F8095A /* AppStyle.m */; };
+		BEE7888F16ACA97700F8095A /* AlertNoisePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEE7888E16ACA97700F8095A /* AlertNoisePickerController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -168,6 +169,8 @@
 		BEE7888816AC865900F8095A /* gear@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "gear@2x.png"; path = "img/gear@2x.png"; sourceTree = "<group>"; };
 		BEE7888A16AC962100F8095A /* AppStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppStyle.h; sourceTree = "<group>"; };
 		BEE7888B16AC962100F8095A /* AppStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppStyle.m; sourceTree = "<group>"; };
+		BEE7888D16ACA97700F8095A /* AlertNoisePickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlertNoisePickerController.h; sourceTree = "<group>"; };
+		BEE7888E16ACA97700F8095A /* AlertNoisePickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlertNoisePickerController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -330,6 +333,8 @@
 				BE917F30161286F200FDA328 /* CreateWorkoutViewController.m */,
 				BEE7888216AC7CBE00F8095A /* SettingsViewController.h */,
 				BEE7888316AC7CBE00F8095A /* SettingsViewController.m */,
+				BEE7888D16ACA97700F8095A /* AlertNoisePickerController.h */,
+				BEE7888E16ACA97700F8095A /* AlertNoisePickerController.m */,
 				BEBB37DF16A9F2E2003FD97A /* SoundPlayer.h */,
 				BEBB37E016A9F2E2003FD97A /* SoundPlayer.m */,
 				BE917F1E161286F200FDA328 /* Supporting Files */,
@@ -495,6 +500,7 @@
 				BEBB37E116A9F2E2003FD97A /* SoundPlayer.m in Sources */,
 				BEE7888416AC7CBE00F8095A /* SettingsViewController.m in Sources */,
 				BEE7888C16AC962100F8095A /* AppStyle.m in Sources */,
+				BEE7888F16ACA97700F8095A /* AlertNoisePickerController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
